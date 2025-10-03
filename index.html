@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNB Mega Giveaway - Win 10 BNB!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add Ad Script -->
+    <script src='//libtl.com/sdk.js' data-zone='9891560' data-sdk='show_9891560'></script>
+    <style>
+        /* Your existing CSS styles remain unchanged */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #F3BA2F;
+            --secondary: #1E1E1E;
+            --accent: #00D4FF;
+            --success: #00FF88;
+            --danger: #FF3366;
+            --warning: #FFB800;
+            --dark: #0A0A0A;
+            --light: #FFFFFF;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bnb-gradient: linear-gradient(135deg, #F3BA2F 0%, #FFD700 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(45deg, #0A0A0A, #1A1A2E, #16213E);
+            overflow: hidden;
+        }
+
+        .floating-bnb {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        /* Header */
+        header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(243, 186, 47, 0.2);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .countdown-timer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(243, 186, 47, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--primary);
+        }
+
+        .timer-unit {
+            text-align: center;
+        }
+
+        .timer-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 0 2rem;
+            border-bottom: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .nav-tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-tab {
+            padding: 1rem 0;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover {
+            color: var(--primary);
+        }
+
+        .nav-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--bnb-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(243, 186, 47, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(243, 186, 47, 0.8)); }
+        }
+
+        .prize-pool {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: var(--success);
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(243, 186, 47, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.3);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* Referral Section */
+        .referral-section {
+            background: linear-gradient(135deg, rgba(243, 186, 47, 0.1), rgba(255, 215, 0, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .referral-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(243, 186, 47, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .referral-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .referral-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .referral-subtitle {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .referral-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .referral-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(243, 186, 47, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .referral-stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.3);
+        }
+
+        .referral-stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .referral-stat-label {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .referral-link-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .referral-link-wrapper {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .referral-link {
+            flex: 1;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(243, 186, 47, 0.3);
+            border-radius: 10px;
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .referral-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .winning-chance {
+            background: linear-gradient(135deg, var(--success), var(--accent));
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chance-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .chance-label {
+            color: var(--dark);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Referrals List */
+        .referrals-list {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .referrals-list h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .referral-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .referral-item:hover {
+            background: rgba(243, 186, 47, 0.1);
+        }
+
+        .referral-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .referral-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bnb-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: bold;
+        }
+
+        .referral-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .referral-address {
+            font-family: monospace;
+            color: var(--accent);
+        }
+
+        .referral-date {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .referral-status {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--success);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Dashboard Styles */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .dashboard-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.2);
+        }
+
+        .dashboard-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-card-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dashboard-card-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .dashboard-card-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success);
+        }
+
+        .profile-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--bnb-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark);
+        }
+
+        .profile-info h2 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-family: monospace;
+        }
+
+        .activity-timeline {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(243, 186, 47, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .progress-ring {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Wallet Section */
+        .wallet-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .wallet-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .wallet-input {
+            flex: 1;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(243, 186, 47, 0.3);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .wallet-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(243, 186, 47, 0.3);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--bnb-gradient);
+            border: none;
+            border-radius: 10px;
+            color: var(--dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border: 1px solid rgba(243, 186, 47, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(243, 186, 47, 0.2);
+        }
+
+        .wallet-status {
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .status-connected {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .status-disconnected {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+
+        /* Tasks Section */
+        .tasks-section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .task-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--bnb-gradient);
+        }
+
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.2);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .task-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .task-reward {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .task-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .task-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .task-progress {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .task-progress-bar {
+            height: 100%;
+            background: var(--bnb-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .task-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(243, 186, 47, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .task-btn:hover:not(:disabled) {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .task-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .task-btn.completed {
+            background: var(--success);
+            border-color: var(--success);
+            color: var(--dark);
+        }
+
+        /* Leaderboard */
+        .leaderboard {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .leaderboard-list {
+            margin-top: 1.5rem;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .leaderboard-item:hover {
+            background: rgba(243, 186, 47, 0.1);
+        }
+
+        .leaderboard-rank {
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 50px;
+            text-align: center;
+        }
+
+        .rank-1 { color: #FFD700; }
+        .rank-2 { color: #C0C0C0; }
+        .rank-3 { color: #CD7F32; }
+
+        .leaderboard-address {
+            flex: 1;
+            margin: 0 1rem;
+            font-family: monospace;
+            color: var(--accent);
+        }
+
+        .leaderboard-tickets {
+            background: rgba(243, 186, 47, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--secondary);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid var(--primary);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: -400px;
+            background: var(--secondary);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: right 0.3s ease;
+            z-index: 3000;
+            max-width: 350px;
+        }
+
+        .notification.show {
+            right: 20px;
+        }
+
+        .notification-icon {
+            font-size: 1.5rem;
+        }
+
+        .notification.success {
+            border-color: var(--success);
+        }
+
+        .notification.success .notification-icon {
+            color: var(--success);
+        }
+
+        .notification.error {
+            border-color: var(--danger);
+        }
+
+        .notification.error .notification-icon {
+            color: var(--danger);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+            border-top: 1px solid rgba(243, 186, 47, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .prize-pool {
+                font-size: 1.5rem;
+            }
+
+            .stats-bar {
+                gap: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-tabs-container {
+                gap: 1rem;
+                overflow-x: auto;
+            }
+
+            .wallet-input-group {
+                flex-direction: column;
+            }
+
+            .tasks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .referral-link-wrapper {
+                flex-direction: column;
+            }
+
+            .referral-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid rgba(243, 186, 47, 0.3);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ticket Counter */
+        .ticket-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bnb-gradient);
+            color: var(--dark);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.4);
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fab fa-btc"></i>
+                <span>BNB Mega Giveaway</span>
+            </div>
+            <div class="countdown-timer">
+                <i class="fas fa-clock"></i>
+                <div class="timer-unit">
+                    <div class="timer-value" id="days">00</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-value" id="hours">00</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-value" id="minutes">00</div>
+                    <div class="timer-label">Mins</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-value" id="seconds">00</div>
+                    <div class="timer-label">Secs</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="nav-tabs-container">
+            <div class="nav-tab active" onclick="switchTab('home')">
+                <i class="fas fa-home"></i> Home
+            </div>
+            <div class="nav-tab" onclick="switchTab('referrals')">
+                <i class="fas fa-users"></i> Referrals
+            </div>
+            <div class="nav-tab" onclick="switchTab('dashboard')">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </div>
+            <div class="nav-tab" onclick="switchTab('tasks')">
+                <i class="fas fa-tasks"></i> Tasks
+            </div>
+            <div class="nav-tab" onclick="switchTab('leaderboard')">
+                <i class="fas fa-trophy"></i> Leaderboard
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Home Tab -->
+        <div id="home-tab" class="tab-content active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>🎉 WIN 10 BNB 🎉</h1>
+                <div class="prize-pool">Total Prize Pool: <span id="totalPrize">10 BNB</span></div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalParticipants">0</div>
+                        <div class="stat-label">Participants</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalTasks">0</div>
+                        <div class="stat-label">Tasks Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="winners">50</div>
+                        <div class="stat-label">Winners</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wallet Section -->
+            <section class="wallet-section">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">
+                    <i class="fas fa-wallet"></i> Connect Your BEP-20 Wallet
+                </h2>
+                <div class="wallet-input-group">
+                    <input type="text" 
+                           class="wallet-input" 
+                           id="walletAddress" 
+                           placeholder="Enter your BEP-20 wallet address (0x...)"
+                           maxlength="42">
+                    <button class="btn" id="connectWallet" onclick="connectWallet()">
+                        Connect Wallet
+                    </button>
+                </div>
+                <div id="walletStatus" class="wallet-status status-disconnected">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Wallet not connected</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- Referrals Tab -->
+        <div id="referrals-tab" class="tab-content">
+            <div class="referral-section">
+                <div class="referral-header">
+                    <h2 class="referral-title">
+                        <i class="fas fa-users"></i> Increase Your Winning Chances!
+                    </h2>
+                    <p class="referral-subtitle">Get +2% winning chance for every successful referral</p>
+                </div>
+
+                <div class="referral-stats">
+                    <div class="referral-stat-card">
+                        <div class="referral-stat-value" id="totalReferrals">0</div>
+                        <div class="referral-stat-label">Total Referrals</div>
+                    </div>
+                    <div class="referral-stat-card">
+                        <div class="referral-stat-value" id="referralBonus">0%</div>
+                        <div class="referral-stat-label">Winning Bonus</div>
+                    </div>
+                    <div class="referral-stat-card">
+                        <div class="referral-stat-value" id="baseChance">1%</div>
+                        <div class="referral-stat-label">Base Chance</div>
+                    </div>
+                </div>
+
+                <div class="referral-link-container">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);">
+                        <i class="fas fa-link"></i> Your Referral Link
+                    </h3>
+                    <div class="referral-link-wrapper">
+                        <div class="referral-link" id="referralLink">
+                            Connect wallet to generate your referral link
+                        </div>
+                        <button class="btn" onclick="copyReferralLink()" id="copyBtn" disabled>
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="referral-actions">
+                    <button class="btn" onclick="shareReferral()" id="shareBtn" disabled>
+                        <i class="fas fa-share-alt"></i> Share Link
+                    </button>
+                    <button class="btn btn-secondary" onclick="showReferralStats()">
+                        <i class="fas fa-chart-bar"></i> View Stats
+                    </button>
+                </div>
+
+                <div class="winning-chance">
+                    <div class="chance-value" id="totalWinningChance">1%</div>
+                    <div class="chance-label">Your Total Winning Chance</div>
+                </div>
+            </div>
+
+            <!-- Referrals List -->
+            <div class="referrals-list">
+                <h3>
+                    <i class="fas fa-user-friends"></i> Your Referrals
+                </h3>
+                <div id="referralsList">
+                    <div class="empty-state">
+                        <i class="fas fa-user-plus"></i>
+                        <p>No referrals yet. Share your link to start earning bonus chances!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard-tab" class="tab-content">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">
+                    <i class="fas fa-chart-line"></i> Your Dashboard
+                </h1>
+                <div class="dashboard-actions">
+                    <button class="btn btn-secondary" onclick="exportData()">
+                        <i class="fas fa-download"></i> Export Data
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearData()">
+                        <i class="fas fa-trash"></i> Clear Data
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">Guest User</h2>
+                        <p id="profileWallet">Not connected</p>
+                        <p style="margin-top: 0.5rem;">
+                            <i class="fas fa-calendar"></i> Joined: <span id="joinDate">-</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats Grid -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-title">
+                            <i class="fas fa-ticket-alt"></i> Total Tickets
+                        </div>
+                        <i class="dashboard-card-icon fas fa-chart-line"></i>
+                    </div>
+                    <div class="dashboard-card-value" id="dashboardTickets">0</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-title">
+                            <i class="fas fa-check-circle"></i> Tasks Completed
+                        </div>
+                        <i class="dashboard-card-icon fas fa-tasks"></i>
+                    </div>
+                    <div class="dashboard-card-value" id="dashboardCompleted">0</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-title">
+                            <i class="fas fa-percentage"></i> Completion Rate
+                        </div>
+                        <i class="dashboard-card-icon fas fa-chart-pie"></i>
+                    </div>
+                    <div class="progress-text" id="completionRate">0%</div>
+                    <svg class="progress-ring" viewBox="0 0 120 120">
+                        <circle class="progress-ring-circle" 
+                                stroke="rgba(243, 186, 47, 0.2)" 
+                                stroke-width="8" 
+                                fill="transparent" 
+                                r="52" 
+                                cx="60" 
+                                cy="60"/>
+                        <circle id="progressCircle" 
+                                class="progress-ring-circle" 
+                                stroke="#F3BA2F" 
+                                stroke-width="8" 
+                                fill="transparent" 
+                                r="52" 
+                                cx="60" 
+                                cy="60"
+                                stroke-dasharray="326.73"
+                                stroke-dashoffset="326.73"/>
+                    </svg>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-title">
+                            <i class="fas fa-users"></i> Referrals
+                        </div>
+                        <i class="dashboard-card-icon fas fa-user-friends"></i>
+                    </div>
+                    <div class="dashboard-card-value" id="dashboardReferrals">0</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-title">
+                            <i class="fas fa-percentage"></i> Win Chance
+                        </div>
+                        <i class="dashboard-card-icon fas fa-trophy"></i>
+                    </div>
+                    <div class="dashboard-card-value" id="dashboardWinChance">1%</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-title">
+                            <i class="fas fa-clock"></i> Last Activity
+                        </div>
+                        <i class="dashboard-card-icon fas fa-history"></i>
+                    </div>
+                    <div style="color: var(--accent);" id="lastActivity">No activity yet</div>
+                </div>
+            </div>
+
+            <!-- Activity Timeline -->
+            <div class="activity-timeline">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
+                    <i class="fas fa-history"></i> Recent Activity
+                </h3>
+                <div id="activityList">
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No activity yet. Complete some tasks to see your activity here!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Tab -->
+        <div id="tasks-tab" class="tab-content">
+            <section class="tasks-section">
+                <h2 class="section-title">
+                    <i class="fas fa-tasks"></i> Complete Tasks for More Tickets
+                </h2>
+                <div class="tasks-grid" id="tasksGrid">
+                    <!-- Tasks will be dynamically generated -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Leaderboard Tab -->
+        <div id="leaderboard-tab" class="tab-content">
+            <section class="leaderboard">
+                <h2 class="section-title">
+                    <i class="fas fa-trophy"></i> Top Participants
+                </h2>
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- Leaderboard items will be dynamically generated -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 BNB Mega Giveaway. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="social-link" onclick="openSocial('telegram')">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="#" class="social-link" onclick="openSocial('twitter')">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" onclick="openSocial('discord')">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="#" class="social-link" onclick="openSocial('youtube')">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Ticket Counter -->
+    <div class="ticket-counter" id="ticketCounter" style="display: none;">
+        <i class="fas fa-ticket-alt"></i> Your Tickets: <span id="userTickets">0</span>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Task Details</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modalBody">
+                <!-- Modal content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="notification-icon fas fa-check-circle"></i>
+        <div>
+            <div id="notificationTitle" style="font-weight: bold;">Success!</div>
+            <div id="notificationMessage" style="font-size: 0.9rem; opacity: 0.8;">Task completed</div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+        import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, addDoc, deleteDoc, query, where, orderBy, limit, onSnapshot, serverTimestamp, runTransaction } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAhaqx7L8q5pCErj-XOUdlcURr01VCcBAI",
+            authDomain: "bnb-megadrop-giveway.firebaseapp.com",
+            projectId: "bnb-megadrop-giveway",
+            storageBucket: "bnb-megadrop-giveway.firebasestorage.app",
+            messagingSenderId: "939519289365",
+            appId: "1:939519289365:web:50439a82fd70b96598c61c",
+            measurementId: "G-4D8F900B5W"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        // Make Firebase services available to the rest of the app
+        window.firebaseDB = db;
+        window.serverTimestamp = serverTimestamp;
+        window.runTransaction = runTransaction;
+    </script>
+
+    <script>
+        // Global State
+        let appState = {
+            walletConnected: false,
+            walletAddress: '',
+            userTickets: 0,
+            completedTasks: [],
+            activities: [],
+            joinDate: null,
+            currentStreak: 0,
+            lastActivityDate: null,
+            referrals: [],
+            referralCode: '',
+            baseWinChance: 1,
+            referralBonus: 0,
+            tasks: [
+                // Watch Ad Tasks (10 ads)
+                {
+                    id: 'watch_ad_1',
+                    title: 'Watch Advertisement #1',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_2',
+                    title: 'Watch Advertisement #2',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_3',
+                    title: 'Watch Advertisement #3',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_4',
+                    title: 'Watch Advertisement #4',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_5',
+                    title: 'Watch Advertisement #5',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_6',
+                    title: 'Watch Advertisement #6',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_7',
+                    title: 'Watch Advertisement #7',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_8',
+                    title: 'Watch Advertisement #8',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_9',
+                    title: 'Watch Advertisement #9',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                {
+                    id: 'watch_ad_10',
+                    title: 'Watch Advertisement #10',
+                    description: 'Watch an advertisement to earn tickets',
+                    icon: 'fa-ad',
+                    reward: 1,
+                    type: 'ad',
+                    progress: 0
+                },
+                // Social Media Tasks (6)
+                {
+                    id: 'youtube_subscribe',
+                    title: 'Subscribe on YouTube',
+                    description: 'Subscribe to our YouTube channel',
+                    icon: 'fa-youtube',
+                    reward: 1,
+                    type: 'social',
+                    link: 'https://youtube.com/example',
+                    progress: 0
+                },
+                {
+                    id: 'telegram_channel',
+                    title: 'Join Telegram Channel',
+                    description: 'Join our official Telegram channel',
+                    icon: 'fa-telegram',
+                    reward: 1,
+                    type: 'social',
+                    link: 'https://t.me/example',
+                    progress: 0
+                },
+                {
+                    id: 'telegram_announcement',
+                    title: 'Join Telegram Announcement Group',
+                    description: 'Join our Telegram announcement group for updates',
+                    icon: 'fa-bullhorn',
+                    reward: 1,
+                    type: 'social',
+                    link: 'https://t.me/example_announcements',
+                    progress: 0
+                },
+                {
+                    id: 'facebook_follow',
+                    title: 'Follow Facebook Page',
+                    description: 'Follow our official Facebook page',
+                    icon: 'fa-facebook',
+                    reward: 1,
+                    type: 'social',
+                    link: 'https://facebook.com/example',
+                    progress: 0
+                },
+                {
+                    id: 'twitter_follow',
+                    title: 'Follow Twitter Account',
+                    description: 'Follow our official Twitter account',
+                    icon: 'fa-twitter',
+                    reward: 1,
+                    type: 'social',
+                    link: 'https://twitter.com/example',
+                    progress: 0
+                },
+                {
+                    id: 'discord_join',
+                    title: 'Join Discord Server',
+                    description: 'Join our Discord community server',
+                    icon: 'fa-discord',
+                    reward: 1,
+                    type: 'social',
+                    link: 'https://discord.gg/example',
+                    progress: 0
+                },
+                // Other Tasks (4)
+                {
+                    id: 'share_giveaway',
+                    title: 'Share Giveaway',
+                    description: 'Share this giveaway with your friends',
+                    icon: 'fa-share-alt',
+                    reward: 1,
+                    type: 'share',
+                    progress: 0
+                },
+                {
+                    id: 'daily_checkin',
+                    title: 'Daily Check-in',
+                    description: 'Check in daily to maintain your streak',
+                    icon: 'fa-calendar-check',
+                    reward: 1,
+                    type: 'daily',
+                    progress: 0
+                },
+                {
+                    id: 'visit_website',
+                    title: 'Visit Our Website',
+                    description: 'Visit our official website for more information',
+                    icon: 'fa-globe',
+                    reward: 1,
+                    type: 'visit',
+                    link: 'https://example.com',
+                    progress: 0
+                },
+                {
+                    id: 'join_newsletter',
+                    title: 'Join Newsletter',
+                    description: 'Subscribe to our newsletter for updates',
+                    icon: 'fa-envelope',
+                    reward: 1,
+                    type: 'newsletter',
+                    progress: 0
+                }
+            ],
+            leaderboard: []
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing app...');
+            console.log('Total tasks:', appState.tasks.length);
+            initializeApp();
+            createFloatingBNB();
+            startCountdown();
+            renderTasks();
+            setupRealtimeListeners();
+            loadGlobalStats();
+            checkReferralCode();
+        });
+
+        // Tab Switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(navTab => {
+                navTab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            // Add active class to clicked nav tab
+            event.target.closest('.nav-tab').classList.add('active');
+            
+            // Update specific tabs
+            if (tabName === 'dashboard') {
+                updateDashboard();
+            } else if (tabName === 'referrals') {
+                updateReferralSection();
+            } else if (tabName === 'leaderboard') {
+                updateLeaderboard();
+            }
+        }
+
+        // Firestore Functions
+        function setupRealtimeListeners() {
+            // Listen for leaderboard updates
+            const leaderboardQuery = query(
+                collection(window.firebaseDB, 'leaderboard'),
+                orderBy('tickets', 'desc'),
+                limit(10)
+            );
+            
+            onSnapshot(leaderboardQuery, (snapshot) => {
+                appState.leaderboard = [];
+                snapshot.forEach((doc) => {
+                    appState.leaderboard.push(doc.data());
+                });
+                renderLeaderboard();
+            });
+
+            // Listen for global stats updates
+            const statsDoc = doc(window.firebaseDB, 'stats', 'global');
+            onSnapshot(statsDoc, (doc) => {
+                if (doc.exists()) {
+                    const stats = doc.data();
+                    document.getElementById('totalParticipants').textContent = stats.participants || 0;
+                    document.getElementById('totalTasks').textContent = stats.tasksCompleted || 0;
+                }
+            });
+        }
+
+        function loadGlobalStats() {
+            // Load initial stats
+            const statsDoc = doc(window.firebaseDB, 'stats', 'global');
+            getDoc(statsDoc).then((doc) => {
+                if (doc.exists()) {
+                    const stats = doc.data();
+                    document.getElementById('totalParticipants').textContent = stats.participants || 0;
+                    document.getElementById('totalTasks').textContent = stats.tasksCompleted || 0;
+                }
+            }).catch((error) => {
+                console.error("Error loading stats:", error);
+            });
+        }
+
+        function updateGlobalStats(incrementParticipants = false, incrementTasks = false) {
+            // Use a transaction to safely update counters
+            const statsDoc = doc(window.firebaseDB, 'stats', 'global');
+            runTransaction(window.firebaseDB, (transaction) => {
+                return transaction.get(statsDoc).then((doc) => {
+                    if (doc.exists()) {
+                        const currentData = doc.data();
+                        const newData = {
+                            participants: incrementParticipants ? (currentData.participants || 0) + 1 : (currentData.participants || 0),
+                            tasksCompleted: incrementTasks ? (currentData.tasksCompleted || 0) + 1 : (currentData.tasksCompleted || 0)
+                        };
+                        transaction.update(statsDoc, newData);
+                        return newData;
+                    } else {
+                        // Create the document if it doesn't exist
+                        const newData = {
+                            participants: incrementParticipants ? 1 : 0,
+                            tasksCompleted: incrementTasks ? 1 : 0
+                        };
+                        transaction.set(statsDoc, newData);
+                        return newData;
+                    }
+                });
+            }).catch((error) => {
+                console.error("Error updating stats:", error);
+            });
+        }
+
+        function saveUserData() {
+            if (!appState.walletConnected) return;
+            
+            // Save user data to Firestore
+            const userDoc = doc(window.firebaseDB, 'users', appState.walletAddress);
+            setDoc(userDoc, {
+                walletAddress: appState.walletAddress,
+                tickets: appState.userTickets,
+                completedTasks: appState.completedTasks,
+                joinDate: appState.joinDate,
+                currentStreak: appState.currentStreak,
+                lastActivityDate: appState.lastActivityDate,
+                referralCode: appState.referralCode,
+                referralBonus: appState.referralBonus,
+                updatedAt: window.serverTimestamp()
+            }, { merge: true }).then(() => {
+                // Update leaderboard entry
+                updateLeaderboardEntry();
+            }).catch((error) => {
+                console.error("Error saving user data:", error);
+                showNotification('Error', 'Failed to save data', 'error');
+            });
+        }
+
+        function loadUserData() {
+            if (!appState.walletConnected) return;
+            
+            // Load user data from Firestore
+            const userDoc = doc(window.firebaseDB, 'users', appState.walletAddress);
+            getDoc(userDoc).then((doc) => {
+                if (doc.exists()) {
+                    const userData = doc.data();
+                    appState.userTickets = userData.tickets || 0;
+                    appState.completedTasks = userData.completedTasks || [];
+                    appState.joinDate = userData.joinDate;
+                    appState.currentStreak = userData.currentStreak || 0;
+                    appState.lastActivityDate = userData.lastActivityDate;
+                    appState.referralCode = userData.referralCode || '';
+                    appState.referralBonus = userData.referralBonus || 0;
+                    
+                    updateWalletUI();
+                    renderTasks();
+                    
+                    // Load user activities
+                    loadUserActivities();
+                    
+                    // Load user referrals
+                    loadUserReferrals();
+                }
+            }).catch((error) => {
+                console.error("Error loading user data:", error);
+            });
+        }
+
+        function loadUserActivities() {
+            const activitiesQuery = query(
+                collection(window.firebaseDB, 'activities'),
+                where('walletAddress', '==', appState.walletAddress),
+                orderBy('timestamp', 'desc'),
+                limit(20)
+            );
+            
+            getDocs(activitiesQuery).then((snapshot) => {
+                appState.activities = [];
+                snapshot.forEach((doc) => {
+                    appState.activities.push(doc.data());
+                });
+            }).catch((error) => {
+                console.error("Error loading activities:", error);
+            });
+        }
+
+        function loadUserReferrals() {
+            const referralsQuery = query(
+                collection(window.firebaseDB, 'referrals'),
+                where('referrerAddress', '==', appState.walletAddress)
+            );
+            
+            getDocs(referralsQuery).then((snapshot) => {
+                appState.referrals = [];
+                snapshot.forEach((doc) => {
+                    appState.referrals.push(doc.data());
+                });
+                updateReferralSection();
+            }).catch((error) => {
+                console.error("Error loading referrals:", error);
+            });
+        }
+
+        function addActivity(type, title) {
+            if (!appState.walletConnected) return;
+            
+            const activity = {
+                walletAddress: appState.walletAddress,
+                type: type,
+                title: title,
+                timestamp: window.serverTimestamp()
+            };
+            
+            addDoc(collection(window.firebaseDB, 'activities'), activity).then(() => {
+                // Update streak
+                updateStreak();
+                
+                // Add to local state
+                appState.activities.unshift(activity);
+                
+                // Keep only last 20 activities in local state
+                if (appState.activities.length > 20) {
+                    appState.activities = appState.activities.slice(0, 20);
+                }
+            }).catch((error) => {
+                console.error("Error adding activity:", error);
+            });
+        }
+
+        function updateLeaderboardEntry() {
+            if (!appState.walletConnected) return;
+            
+            // Update or create leaderboard entry
+            const leaderboardDoc = doc(window.firebaseDB, 'leaderboard', appState.walletAddress);
+            setDoc(leaderboardDoc, {
+                address: appState.walletAddress,
+                tickets: appState.userTickets,
+                referrals: appState.referrals.length,
+                updatedAt: window.serverTimestamp()
+            }).catch((error) => {
+                console.error("Error updating leaderboard:", error);
+            });
+        }
+
+        function updateLeaderboard() {
+            // This is handled by the real-time listener
+            // Just ensure the UI is updated
+            renderLeaderboard();
+        }
+
+        // Referral Functions
+        function generateReferralCode() {
+            if (!appState.walletConnected) return '';
+            
+            if (!appState.referralCode) {
+                // Generate unique referral code from wallet address
+                const shortAddress = appState.walletAddress.substring(2, 8);
+                appState.referralCode = shortAddress.toUpperCase();
+                saveUserData();
+            }
+            
+            return appState.referralCode;
+        }
+
+        function getReferralLink() {
+            const code = generateReferralCode();
+            if (!code) return '';
+            return `${window.location.origin}${window.location.pathname}?ref=${code}`;
+        }
+
+        function updateReferralSection() {
+            if (!appState.walletConnected) {
+                document.getElementById('referralLink').textContent = 'Connect wallet to generate your referral link';
+                document.getElementById('copyBtn').disabled = true;
+                document.getElementById('shareBtn').disabled = true;
+                return;
+            }
+
+            const referralLink = getReferralLink();
+            document.getElementById('referralLink').textContent = referralLink;
+            document.getElementById('copyBtn').disabled = false;
+            document.getElementById('shareBtn').disabled = false;
+
+            // Update stats
+            document.getElementById('totalReferrals').textContent = appState.referrals.length;
+            document.getElementById('referralBonus').textContent = `${appState.referralBonus}%`;
+            
+            // Calculate total winning chance
+            const totalChance = appState.baseWinChance + appState.referralBonus;
+            document.getElementById('totalWinningChance').textContent = `${totalChance}%`;
+
+            // Render referrals list
+            renderReferralsList();
+        }
+
+        function renderReferralsList() {
+            const referralsList = document.getElementById('referralsList');
+            
+            if (appState.referrals.length === 0) {
+                referralsList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-user-plus"></i>
+                        <p>No referrals yet. Share your link to start earning bonus chances!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            referralsList.innerHTML = appState.referrals.map(referral => `
+                <div class="referral-item">
+                    <div class="referral-info">
+                        <div class="referral-avatar">
+                            ${referral.referredAddress.substring(0, 2).toUpperCase()}
+                        </div>
+                        <div class="referral-details">
+                            <div class="referral-address">${referral.referredAddress}</div>
+                            <div class="referral-date">Referred: ${new Date(referral.timestamp.toDate()).toLocaleDateString()}</div>
+                        </div>
+                    </div>
+                    <div class="referral-status">Active</div>
+                </div>
+            `).join('');
+        }
+
+        function copyReferralLink() {
+            const referralLink = getReferralLink();
+            if (!referralLink) {
+                showNotification('Error', 'Please connect your wallet first', 'error');
+                return;
+            }
+
+            navigator.clipboard.writeText(referralLink).then(() => {
+                showNotification('Success', 'Referral link copied to clipboard!', 'success');
+            }).catch(() => {
+                showNotification('Error', 'Failed to copy link', 'error');
+            });
+        }
+
+        function shareReferral() {
+            const referralLink = getReferralLink();
+            if (!referralLink) {
+                showNotification('Error', 'Please connect your wallet first', 'error');
+                return;
+            }
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'BNB Mega Giveaway',
+                    text: `Join the BNB Mega Giveaway using my referral link and increase your winning chances!`,
+                    url: referralLink
+                }).then(() => {
+                    showNotification('Success', 'Referral link shared!', 'success');
+                }).catch(() => {
+                    // User cancelled
+                });
+            } else {
+                // Fallback
+                copyReferralLink();
+            }
+        }
+
+        function showReferralStats() {
+            const stats = {
+                total: appState.referrals.length,
+                thisMonth: appState.referrals.filter(r => {
+                    const referralDate = r.timestamp.toDate();
+                    const now = new Date();
+                    return referralDate.getMonth() === now.getMonth() && 
+                           referralDate.getFullYear() === now.getFullYear();
+                }).length,
+                bonus: appState.referralBonus,
+                totalChance: appState.baseWinChance + appState.referralBonus
+            };
+
+            showNotification('Referral Stats', 
+                `Total: ${stats.total} | This Month: ${stats.thisMonth} | Bonus: +${stats.bonus}% | Total Chance: ${stats.totalChance}%`, 
+                'success');
+        }
+
+        function checkReferralCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refCode = urlParams.get('ref');
+            
+            if (refCode && !appState.walletConnected) {
+                // Store referral code for later use
+                sessionStorage.setItem('pendingReferral', refCode);
+                console.log('Referral code detected:', refCode);
+            }
+        }
+
+        function processReferral(referrerCode) {
+            if (!referrerCode || !appState.walletConnected) return;
+
+            // Check if this user was already referred
+            const referredQuery = query(
+                collection(window.firebaseDB, 'referrals'),
+                where('referredAddress', '==', appState.walletAddress)
+            );
+            
+            getDocs(referredQuery).then((snapshot) => {
+                if (!snapshot.empty) {
+                    // User was already referred
+                    return;
+                }
+
+                // Find the referrer
+                const referrerQuery = query(
+                    collection(window.firebaseDB, 'users'),
+                    where('referralCode', '==', referrerCode)
+                );
+                
+                return getDocs(referrerQuery);
+            }).then((snapshot) => {
+                if (snapshot && snapshot.empty) {
+                    // Referrer not found
+                    return;
+                }
+
+                const referrerDoc = snapshot.docs[0];
+                const referrerAddress = referrerDoc.id;
+
+                // Create referral record
+                return addDoc(collection(window.firebaseDB, 'referrals'), {
+                    referrerAddress: referrerAddress,
+                    referredAddress: appState.walletAddress,
+                    timestamp: window.serverTimestamp(),
+                    status: 'active'
+                });
+            }).then(() => {
+                // Update referrer's bonus
+                const referrerDoc = doc(window.firebaseDB, 'users', referrerAddress);
+                return getDoc(referrerDoc);
+            }).then((doc) => {
+                if (doc.exists()) {
+                    const referrerData = doc.data();
+                    const newReferralBonus = (referrerData.referralBonus || 0) + 2;
+                    const newReferralCount = (referrerData.referrals || 0) + 1;
+                    
+                    return updateDoc(referrerDoc, {
+                        referralBonus: newReferralBonus,
+                        referrals: newReferralCount
+                    });
+                }
+            }).then(() => {
+                showNotification('Referral Bonus!', 
+                    `You were referred successfully!`, 
+                    'success');
+                
+                // Add activity
+                addActivity('referral', `Joined with referral code: ${referrerCode}`);
+            }).catch((error) => {
+                console.error("Error processing referral:", error);
+            });
+        }
+
+        // Dashboard Functions
+        function updateDashboard() {
+            if (!appState.walletConnected) {
+                showNotification('Login Required', 'Please connect your wallet to view dashboard', 'error');
+                switchTab('home');
+                return;
+            }
+
+            // Update profile info
+            document.getElementById('profileName').textContent = `User ${appState.walletAddress.substring(0, 6)}`;
+            document.getElementById('profileWallet').textContent = appState.walletAddress;
+            document.getElementById('joinDate').textContent = appState.joinDate ? new Date(appState.joinDate).toLocaleDateString() : new Date().toLocaleDateString();
+            
+            // Update stats
+            document.getElementById('dashboardTickets').textContent = appState.userTickets;
+            document.getElementById('dashboardCompleted').textContent = appState.completedTasks.length;
+            document.getElementById('dashboardReferrals').textContent = appState.referrals.length;
+            
+            // Calculate completion rate
+            const completionRate = Math.round((appState.completedTasks.length / appState.tasks.length) * 100);
+            document.getElementById('completionRate').textContent = `${completionRate}%`;
+            
+            // Update progress circle
+            const circle = document.getElementById('progressCircle');
+            const circumference = 2 * Math.PI * 52;
+            const offset = circumference - (completionRate / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            
+            // Update winning chance
+            const totalChance = appState.baseWinChance + appState.referralBonus;
+            document.getElementById('dashboardWinChance').textContent = `${totalChance}%`;
+            
+            // Update last activity
+            if (appState.activities.length > 0) {
+                const lastActivity = appState.activities[0];
+                document.getElementById('lastActivity').textContent = formatTimeAgo(lastActivity.timestamp);
+            } else {
+                document.getElementById('lastActivity').textContent = 'No activity yet';
+            }
+            
+            // Update activity timeline
+            renderActivityTimeline();
+        }
+
+        function renderActivityTimeline() {
+            const activityList = document.getElementById('activityList');
+            
+            if (appState.activities.length === 0) {
+                activityList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No activity yet. Complete some tasks to see your activity here!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Show last 10 activities
+            const recentActivities = appState.activities.slice(0, 10);
+            activityList.innerHTML = recentActivities.map(activity => `
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas ${getActivityIcon(activity.type)}"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-title">${activity.title}</div>
+                        <div class="activity-time">${formatTimeAgo(activity.timestamp)}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getActivityIcon(type) {
+            const icons = {
+                'ad': 'fa-ad',
+                'social': 'fa-users',
+                'share': 'fa-share-alt',
+                'daily': 'fa-calendar-check',
+                'visit': 'fa-globe',
+                'newsletter': 'fa-envelope',
+                'wallet': 'fa-wallet',
+                'referral': 'fa-user-plus'
+            };
+            return icons[type] || 'fa-check-circle';
+        }
+
+        function formatTimeAgo(timestamp) {
+            const now = new Date();
+            const activityDate = timestamp.toDate();
+            const diffInSeconds = Math.floor((now - activityDate) / 1000);
+            
+            if (diffInSeconds < 60) return 'Just now';
+            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
+            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
+            return `${Math.floor(diffInSeconds / 86400)} days ago`;
+        }
+
+        function updateStreak() {
+            const today = new Date().toDateString();
+            const lastActivity = appState.lastActivityDate ? new Date(appState.lastActivityDate).toDateString() : null;
+            
+            if (lastActivity === today) {
+                // Already checked in today
+                return;
+            } else if (lastActivity === new Date(Date.now() - 86400000).toDateString()) {
+                // Yesterday - continue streak
+                appState.currentStreak++;
+            } else {
+                // Streak broken
+                appState.currentStreak = 1;
+            }
+            
+            appState.lastActivityDate = new Date().toISOString();
+        }
+
+        function exportData() {
+            const data = {
+                walletAddress: appState.walletAddress,
+                tickets: appState.userTickets,
+                completedTasks: appState.completedTasks,
+                activities: appState.activities.map(a => ({
+                    type: a.type,
+                    title: a.title,
+                    timestamp: a.timestamp.toDate().toISOString()
+                })),
+                referrals: appState.referrals.map(r => ({
+                    referredAddress: r.referredAddress,
+                    timestamp: r.timestamp.toDate().toISOString()
+                })),
+                referralBonus: appState.referralBonus,
+                joinDate: appState.joinDate,
+                currentStreak: appState.currentStreak,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `bnb-giveaway-data-${Date.now()}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showNotification('Success', 'Your data has been exported', 'success');
+        }
+
+        function clearData() {
+            if (confirm('Are you sure you want to clear all your data? This action cannot be undone.')) {
+                // Delete user document from Firestore
+                if (appState.walletConnected) {
+                    const userDoc = doc(window.firebaseDB, 'users', appState.walletAddress);
+                    deleteDoc(userDoc)
+                        .then(() => {
+                            // Delete activities
+                            const activitiesQuery = query(
+                                collection(window.firebaseDB, 'activities'),
+                                where('walletAddress', '==', appState.walletAddress)
+                            );
+                            
+                            return getDocs(activitiesQuery);
+                        })
+                        .then((snapshot) => {
+                            const batch = writeBatch(window.firebaseDB);
+                            snapshot.forEach((doc) => {
+                                batch.delete(doc.ref);
+                            });
+                            return batch.commit();
+                        })
+                        .then(() => {
+                            // Delete referrals
+                            const referralsQuery = query(
+                                collection(window.firebaseDB, 'referrals'),
+                                where('referredAddress', '==', appState.walletAddress)
+                            );
+                            
+                            return getDocs(referralsQuery);
+                        })
+                        .then((snapshot) => {
+                            const batch = writeBatch(window.firebaseDB);
+                            snapshot.forEach((doc) => {
+                                batch.delete(doc.ref);
+                            });
+                            return batch.commit();
+                        })
+                        .then(() => {
+                            // Delete from leaderboard
+                            const leaderboardDoc = doc(window.firebaseDB, 'leaderboard', appState.walletAddress);
+                            return deleteDoc(leaderboardDoc);
+                        })
+                        .then(() => {
+                            showNotification('Success', 'Your data has been cleared', 'success');
+                            location.reload();
+                        })
+                        .catch((error) => {
+                            console.error("Error clearing data:", error);
+                            showNotification('Error', 'Failed to clear data', 'error');
+                        });
+                } else {
+                    location.reload();
+                }
+            }
+        }
+
+        function initializeApp() {
+            // Check for wallet connection in localStorage
+            const savedWallet = localStorage.getItem('walletAddress');
+            if (savedWallet) {
+                appState.walletAddress = savedWallet;
+                appState.walletConnected = true;
+                loadUserData();
+            }
+        }
+
+        function createFloatingBNB() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            for (let i = 0; i < 10; i++) {
+                const bnb = document.createElement('div');
+                bnb.className = 'floating-bnb';
+                bnb.innerHTML = '₮';
+                bnb.style.left = Math.random() * 100 + '%';
+                bnb.style.animationDelay = Math.random() * 20 + 's';
+                bnb.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+                bgAnimation.appendChild(bnb);
+            }
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 7); // 7 days from now
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.querySelector('.countdown-timer').innerHTML = '<span style="color: var(--danger);">Giveaway Ended!</span>';
+                }
+            }
+
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // Wallet Functions
+        function connectWallet() {
+            const walletInput = document.getElementById('walletAddress');
+            const address = walletInput.value.trim();
+
+            if (!address) {
+                showNotification('Error', 'Please enter a wallet address', 'error');
+                return;
+            }
+
+            if (!isValidBEP20Address(address)) {
+                showNotification('Error', 'Invalid BEP-20 wallet address', 'error');
+                return;
+            }
+
+            appState.walletConnected = true;
+            appState.walletAddress = address;
+            
+            // Save to localStorage for persistence
+            localStorage.setItem('walletAddress', address);
+            
+            // Check if user exists in Firestore
+            const userDoc = doc(window.firebaseDB, 'users', address);
+            getDoc(userDoc).then((doc) => {
+                if (!doc.exists()) {
+                    // New user - set join date
+                    appState.joinDate = new Date().toISOString();
+                    appState.userTickets = 0;
+                    appState.completedTasks = [];
+                    appState.referralBonus = 0;
+                    appState.currentStreak = 0;
+                    
+                    // Update global stats
+                    updateGlobalStats(true, false);
+                    
+                    // Add activity
+                    addActivity('wallet', 'Wallet connected');
+                    
+                    // Process pending referral if exists
+                    const pendingReferral = sessionStorage.getItem('pendingReferral');
+                    if (pendingReferral) {
+                        processReferral(pendingReferral);
+                        sessionStorage.removeItem('pendingReferral');
+                    }
+                } else {
+                    // Existing user - load data
+                    const userData = doc.data();
+                    appState.userTickets = userData.tickets || 0;
+                    appState.completedTasks = userData.completedTasks || [];
+                    appState.joinDate = userData.joinDate;
+                    appState.currentStreak = userData.currentStreak || 0;
+                    appState.lastActivityDate = userData.lastActivityDate;
+                    appState.referralCode = userData.referralCode || '';
+                    appState.referralBonus = userData.referralBonus || 0;
+                    
+                    // Load user activities and referrals
+                    loadUserActivities();
+                    loadUserReferrals();
+                }
+                
+                updateWalletUI();
+                saveUserData();
+                showNotification('Success', 'Wallet connected successfully!', 'success');
+            }).catch((error) => {
+                console.error("Error connecting wallet:", error);
+                showNotification('Error', 'Failed to connect wallet', 'error');
+            });
+        }
+
+        function isValidBEP20Address(address) {
+            return /^0x[a-fA-F0-9]{40}$/.test(address);
+        }
+
+        function updateWalletUI() {
+            const statusDiv = document.getElementById('walletStatus');
+            const connectBtn = document.getElementById('connectWallet');
+            const ticketCounter = document.getElementById('ticketCounter');
+            const walletInput = document.getElementById('walletAddress');
+
+            if (appState.walletConnected) {
+                statusDiv.className = 'wallet-status status-connected';
+                statusDiv.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>Connected: ${appState.walletAddress.substring(0, 6)}...${appState.walletAddress.substring(38)}</span>
+                `;
+                connectBtn.textContent = 'Connected';
+                connectBtn.disabled = true;
+                walletInput.disabled = true;
+                ticketCounter.style.display = 'block';
+                document.getElementById('userTickets').textContent = appState.userTickets;
+            } else {
+                statusDiv.className = 'wallet-status status-disconnected';
+                statusDiv.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Wallet not connected</span>
+                `;
+                connectBtn.textContent = 'Connect Wallet';
+                connectBtn.disabled = false;
+                walletInput.disabled = false;
+                ticketCounter.style.display = 'none';
+            }
+        }
+
+        // Task Functions
+        function renderTasks() {
+            console.log('Rendering tasks...');
+            const tasksGrid = document.getElementById('tasksGrid');
+            tasksGrid.innerHTML = '';
+
+            appState.tasks.forEach((task, index) => {
+                console.log(`Rendering task ${index + 1}: ${task.title}`);
+                const isCompleted = appState.completedTasks.includes(task.id);
+                const taskCard = document.createElement('div');
+                taskCard.className = 'task-card';
+                taskCard.innerHTML = `
+                    <div class="task-header">
+                        <i class="task-icon fas ${task.icon}"></i>
+                        <span class="task-reward">+${task.reward} ticket</span>
+                    </div>
+                    <h3 class="task-title">${task.title}</h3>
+                    <p class="task-description">${task.description}</p>
+                    <div class="task-progress">
+                        <div class="task-progress-bar" style="width: ${task.progress}%"></div>
+                    </div>
+                    <button class="task-btn ${isCompleted ? 'completed' : ''}" 
+                            onclick="handleTask('${task.id}')"
+                            ${!appState.walletConnected ? 'disabled' : ''}>
+                        ${isCompleted ? '✓ Got Ticket' : 'Get Ticket'}
+                    </button>
+                `;
+                tasksGrid.appendChild(taskCard);
+            });
+            
+            console.log(`Total tasks rendered: ${appState.tasks.length}`);
+        }
+
+        function handleTask(taskId) {
+            if (!appState.walletConnected) {
+                showNotification('Error', 'Please connect your wallet first', 'error');
+                return;
+            }
+
+            const task = appState.tasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            if (appState.completedTasks.includes(taskId)) {
+                showNotification('Info', 'Task already completed', 'info');
+                return;
+            }
+
+            switch (task.type) {
+                case 'ad':
+                    // Show the libtl.com ad
+                    showAdAndCompleteTask(taskId);
+                    break;
+                case 'social':
+                case 'visit':
+                    window.open(task.link, '_blank');
+                    setTimeout(() => completeTask(taskId), 3000);
+                    break;
+                case 'share':
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'BNB Mega Giveaway',
+                            text: 'Join the BNB Mega Giveaway and win 10 BNB!',
+                            url: getReferralLink() || window.location.href
+                        }).then(() => completeTask(taskId));
+                    } else {
+                        // Fallback for browsers that don't support Web Share API
+                        navigator.clipboard.writeText(getReferralLink() || window.location.href);
+                        showNotification('Link Copied!', 'Share this link with your friends', 'success');
+                        setTimeout(() => completeTask(taskId), 2000);
+                    }
+                    break;
+                default:
+                    completeTask(taskId);
+            }
+        }
+
+        function showAdAndCompleteTask(taskId) {
+            // Show the libtl.com rewarded popup
+            show_9891560('pop').then(() => {
+                // User watched the ad till the end
+                completeTask(taskId);
+            }).catch(e => {
+                // User got error during playing ad
+                console.error('Ad error:', e);
+                showNotification('Ad Error', 'Failed to load ad. Please try again.', 'error');
+            });
+        }
+
+        function completeTask(taskId) {
+            if (!appState.completedTasks.includes(taskId)) {
+                appState.completedTasks.push(taskId);
+                const task = appState.tasks.find(t => t.id === taskId);
+                if (task) {
+                    appState.userTickets += task.reward;
+                    task.progress = 100;
+                    
+                    // Add activity
+                    addActivity(task.type, `Completed: ${task.title}`);
+                    
+                    // Update global stats
+                    updateGlobalStats(false, true);
+                }
+                saveUserData();
+                renderTasks();
+                updateWalletUI();
+                showNotification('Task Completed!', `+${task.reward} ticket earned`, 'success');
+                
+                // Update dashboard if it's the active tab
+                if (document.getElementById('dashboard-tab').classList.contains('active')) {
+                    updateDashboard();
+                }
+            }
+        }
+
+        // Leaderboard Functions
+        function renderLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboardList');
+            leaderboardList.innerHTML = '';
+
+            appState.leaderboard.forEach((entry, index) => {
+                const item = document.createElement('div');
+                item.className = 'leaderboard-item';
+                item.innerHTML = `
+                    <div class="leaderboard-rank rank-${index + 1}">
+                        ${index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : index + 1}
+                    </div>
+                    <div class="leaderboard-address">${entry.address.substring(0, 6)}...${entry.address.substring(38)}</div>
+                    <div class="leaderboard-tickets">${entry.tickets} tickets</div>
+                `;
+                leaderboardList.appendChild(item);
+            });
+        }
+
+        // Modal Functions
+        function closeModal() {
+            document.getElementById('taskModal').classList.remove('active');
+        }
+
+        // Notification Functions
+        function showNotification(title, message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const icon = notification.querySelector('.notification-icon');
+            
+            notification.className = `notification ${type}`;
+            document.getElementById('notificationTitle').textContent = title;
+            document.getElementById('notificationMessage').textContent = message;
+            
+            if (type === 'success') {
+                icon.className = 'notification-icon fas fa-check-circle';
+            } else if (type === 'error') {
+                icon.className = 'notification-icon fas fa-exclamation-circle';
+            } else {
+                icon.className = 'notification-icon fas fa-info-circle';
+            }
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Social Functions
+        function openSocial(platform) {
+            const links = {
+                telegram: 'https://t.me/example',
+                twitter: 'https://twitter.com/example',
+                discord: 'https://discord.gg/example',
+                youtube: 'https://youtube.com/example'
+            };
+            window.open(links[platform], '_blank');
+        }
+
+        // Close modal on outside click
+        document.getElementById('taskModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
