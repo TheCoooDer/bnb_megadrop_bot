@@ -2,85 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNB Mega Giveaway - Win 10 BNB!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Binance Megadrop - User Friendly Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Add Ad Script -->
-    <script src='//libtl.com/sdk.js' data-zone='9891560' data-sdk='show_9891560'></script>
     <style>
-        /* Your existing CSS styles remain unchanged */
+        :root {
+            --primary-color: #f3ba2f;
+            --secondary-color: #1e2329;
+            --accent-color: #fcd535;
+            --text-color: #ffffff;
+            --subtle-text: #b7bdc6;
+            --success-color: #0ecb81;
+            --danger-color: #f6465d;
+            --warning-color: #fcd535;
+            --info-color: #2eb6ea;
+            --card-bg: rgba(30, 35, 41, 0.7);
+            --gradient-primary: linear-gradient(135deg, #f3ba2f 0%, #fcd535 100%);
+            --gradient-dark: linear-gradient(180deg, #181a20 0%, #1e2329 100%);
+            --gradient-success: linear-gradient(135deg, #0ecb81 0%, #00d68f 100%);
+            --gradient-refer: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            --gradient-admin: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-ad: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #F3BA2F;
-            --secondary: #1E1E1E;
-            --accent: #00D4FF;
-            --success: #00FF88;
-            --danger: #FF3366;
-            --warning: #FFB800;
-            --dark: #0A0A0A;
-            --light: #FFFFFF;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --bnb-gradient: linear-gradient(135deg, #F3BA2F 0%, #FFD700 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--dark);
-            color: var(--light);
+            background: var(--gradient-dark);
+            color: var(--text-color);
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 70px; /* Space for bottom navigation */
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            background: linear-gradient(45deg, #0A0A0A, #1A1A2E, #16213E);
-            overflow: hidden;
+        .container {
+            max-width: 100%;
+            padding: 0 16px;
+            margin: 0 auto;
         }
 
-        .floating-bnb {
-            position: absolute;
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.1;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(100vh) rotate(0deg);
-            }
-            to {
-                transform: translateY(-100px) rotate(360deg);
-            }
-        }
-
-        /* Header */
+        /* Header Styles */
         header {
-            background: rgba(30, 30, 30, 0.95);
+            background: rgba(24, 26, 32, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
+            padding: 16px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(243, 186, 47, 0.2);
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,778 +72,954 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
+            gap: 12px;
+            font-size: 22px;
             font-weight: bold;
-            color: var(--primary);
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            font-size: 28px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-weight: bold;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Main Content */
+        main {
+            padding: 24px 0 20px;
+            flex: 1;
+        }
+
+        /* View Containers */
+        .view-container {
+            display: none;
+        }
+
+        .view-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--subtle-text);
+            margin-top: 4px;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 24px 20px;
+        }
+
+        .countdown-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            opacity: 0.9;
         }
 
         .countdown-timer {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(243, 186, 47, 0.1);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid var(--primary);
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
-        .timer-unit {
-            text-align: center;
+        .time-block {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            min-width: 70px;
         }
 
-        .timer-value {
-            font-size: 1.5rem;
+        .time-value {
+            font-size: 28px;
             font-weight: bold;
-            color: var(--primary);
+            line-height: 1;
         }
 
-        .timer-label {
-            font-size: 0.75rem;
-            color: var(--accent);
-        }
-
-        /* Navigation Tabs */
-        .nav-tabs {
-            background: rgba(30, 30, 30, 0.95);
-            padding: 0 2rem;
-            border-bottom: 1px solid rgba(243, 186, 47, 0.2);
-        }
-
-        .nav-tabs-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-tab {
-            padding: 1rem 0;
-            color: rgba(255, 255, 255, 0.7);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            font-weight: 500;
-        }
-
-        .nav-tab:hover {
-            color: var(--primary);
-        }
-
-        .nav-tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        /* Tab Content */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 3rem 0;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--bnb-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(243, 186, 47, 0.5)); }
-            to { filter: drop-shadow(0 0 30px rgba(243, 186, 47, 0.8)); }
+        .time-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 4px;
         }
 
         .prize-pool {
-            font-size: 2rem;
-            margin: 1rem 0;
-            color: var(--success);
+            font-size: 18px;
+            font-weight: 600;
         }
 
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(243, 186, 47, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.3);
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
-
-        /* Referral Section */
-        .referral-section {
-            background: linear-gradient(135deg, rgba(243, 186, 47, 0.1), rgba(255, 215, 0, 0.1));
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 2px solid var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .referral-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(243, 186, 47, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .referral-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .referral-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .referral-subtitle {
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .referral-stats {
+        /* Status Cards */
+        .status-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
         }
 
-        .referral-stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
+        .status-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             text-align: center;
-            border: 1px solid rgba(243, 186, 47, 0.3);
-            transition: all 0.3s ease;
         }
 
-        .referral-stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.3);
+        .status-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .referral-stat-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--success);
-            margin-bottom: 0.5rem;
-        }
-
-        .referral-stat-label {
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .referral-link-container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .referral-link-wrapper {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .referral-link {
-            flex: 1;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(243, 186, 47, 0.3);
-            border-radius: 10px;
-            color: var(--accent);
-            font-family: monospace;
-            font-size: 0.9rem;
-            word-break: break-all;
-        }
-
-        .referral-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .winning-chance {
-            background: linear-gradient(135deg, var(--success), var(--accent));
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-top: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .chance-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .chance-label {
-            color: var(--dark);
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Referrals List */
-        .referrals-list {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-top: 2rem;
-            border: 1px solid rgba(243, 186, 47, 0.2);
-        }
-
-        .referrals-list h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .referral-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .referral-item:hover {
-            background: rgba(243, 186, 47, 0.1);
-        }
-
-        .referral-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .referral-avatar {
-            width: 40px;
-            height: 40px;
+        .status-icon {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: var(--bnb-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--dark);
-            font-weight: bold;
+            margin: 0 auto 12px;
+            font-size: 24px;
         }
 
-        .referral-details {
+        .status-card.wallet .status-icon {
+            background: rgba(243, 186, 47, 0.2);
+            color: var(--primary-color);
+        }
+
+        .status-card.tickets .status-icon {
+            background: rgba(14, 203, 129, 0.2);
+            color: var(--success-color);
+        }
+
+        .status-card.referrals .status-icon {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+        }
+
+        .status-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .status-label {
+            font-size: 14px;
+            color: var(--subtle-text);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            padding: 16px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
             display: flex;
             flex-direction: column;
-        }
-
-        .referral-address {
-            font-family: monospace;
-            color: var(--accent);
-        }
-
-        .referral-date {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .referral-status {
-            background: rgba(0, 255, 136, 0.2);
-            color: var(--success);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        /* Dashboard Styles */
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .dashboard-title {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .dashboard-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .dashboard-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid rgba(243, 186, 47, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.2);
-        }
-
-        .dashboard-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .dashboard-card-title {
-            font-size: 1.2rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .dashboard-card-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .dashboard-card-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--success);
-        }
-
-        .profile-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(243, 186, 47, 0.2);
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .profile-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--bnb-gradient);
-            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: var(--dark);
-        }
-
-        .profile-info h2 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-info p {
-            color: rgba(255, 255, 255, 0.7);
-            font-family: monospace;
-        }
-
-        .activity-timeline {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(243, 186, 47, 0.2);
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .activity-item:last-child {
-            border-bottom: none;
-        }
-
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(243, 186, 47, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            flex-shrink: 0;
-        }
-
-        .activity-content {
-            flex: 1;
-        }
-
-        .activity-title {
-            color: var(--light);
-            margin-bottom: 0.25rem;
-        }
-
-        .activity-time {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.85rem;
-        }
-
-        .progress-ring {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto;
-        }
-
-        .progress-ring-circle {
-            transition: stroke-dashoffset 0.35s;
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
-        }
-
-        .progress-text {
+            gap: 8px;
             text-align: center;
-            margin-top: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
+            box-shadow: var(--shadow);
         }
 
-        /* Wallet Section */
-        .wallet-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(243, 186, 47, 0.2);
+        .action-btn i {
+            font-size: 20px;
         }
 
-        .wallet-input-group {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
+        .action-btn.primary {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
         }
 
-        .wallet-input {
-            flex: 1;
-            padding: 1rem;
+        .action-btn.secondary {
             background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(243, 186, 47, 0.3);
-            border-radius: 10px;
-            color: var(--light);
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            color: var(--text-color);
         }
 
-        .wallet-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(243, 186, 47, 0.3);
+        .action-btn.refer {
+            background: var(--gradient-refer);
+            color: white;
         }
 
-        .btn {
-            padding: 1rem 2rem;
-            background: var(--bnb-gradient);
-            border: none;
-            border-radius: 10px;
-            color: var(--dark);
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.4);
-        }
-
-        .btn:disabled {
+        .action-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--light);
-            border: 1px solid rgba(243, 186, 47, 0.3);
+        .action-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .btn-secondary:hover {
-            background: rgba(243, 186, 47, 0.2);
-        }
-
-        .wallet-status {
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .status-connected {
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid var(--success);
-            color: var(--success);
-        }
-
-        .status-disconnected {
-            background: rgba(255, 51, 102, 0.1);
-            border: 1px solid var(--danger);
-            color: var(--danger);
-        }
-
-        /* Tasks Section */
-        .tasks-section {
-            margin: 3rem 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: var(--primary);
-        }
-
-        .tasks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
+        /* Task Cards */
         .task-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            border: 1px solid rgba(243, 186, 47, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .task-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--bnb-gradient);
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
         .task-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.2);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
 
         .task-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .task-icon {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .task-reward {
-            background: rgba(0, 255, 136, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            color: var(--success);
-            font-weight: bold;
+            align-items: flex-start;
+            margin-bottom: 12px;
         }
 
         .task-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--light);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .task-reward {
+            background: rgba(14, 203, 129, 0.2);
+            color: var(--success-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .task-reward.ad {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--info-color);
         }
 
         .task-description {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            color: var(--subtle-text);
+            margin-bottom: 16px;
+            font-size: 14px;
         }
 
-        .task-progress {
-            background: rgba(255, 255, 255, 0.1);
-            height: 8px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-
-        .task-progress-bar {
-            height: 100%;
-            background: var(--bnb-gradient);
-            transition: width 0.3s ease;
-        }
-
-        .task-btn {
+        .task-button {
             width: 100%;
-            padding: 0.75rem;
-            background: rgba(243, 186, 47, 0.2);
-            border: 1px solid var(--primary);
-            border-radius: 8px;
-            color: var(--primary);
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .task-btn:hover:not(:disabled) {
-            background: var(--primary);
-            color: var(--dark);
+        .task-button.start {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
         }
 
-        .task-btn:disabled {
-            opacity: 0.5;
+        .task-button.start.ad {
+            background: var(--gradient-ad);
+            color: white;
+        }
+
+        .task-button.verify {
+            background: rgba(14, 203, 129, 0.2);
+            color: var(--success-color);
+        }
+
+        .task-button.completed {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--subtle-text);
             cursor: not-allowed;
         }
 
-        .task-btn.completed {
-            background: var(--success);
-            border-color: var(--success);
-            color: var(--dark);
+        /* Ads Grid */
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .ad-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .ad-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-ad);
+        }
+
+        .ad-image {
+            width: 100%;
+            height: 80px;
+            background: var(--gradient-ad);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+        }
+
+        .ad-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ad-reward {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--info-color);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .ad-status {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--success-color);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .ad-card.completed .ad-status {
+            display: flex;
+        }
+
+        /* Refer Section */
+        .refer-section {
+            background: var(--gradient-refer);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 24px 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .refer-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .refer-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .refer-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .refer-subtitle {
+            opacity: 0.9;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .refer-code-container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .refer-code-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .refer-code-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .refer-code {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .copy-btn {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .refer-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .refer-stat {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .refer-stat-value {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .refer-stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .refer-link-container {
+            margin-top: 16px;
+        }
+
+        .refer-link {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            word-break: break-all;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Participation Section */
+        .participation-section {
+            background: var(--gradient-success);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 24px 20px;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .participation-section.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .participation-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .participation-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .participation-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .participation-subtitle {
+            opacity: 0.9;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .ticket-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .ticket-count-display {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .ticket-chance {
+            font-size: 14px;
+            opacity: 0.9;
         }
 
         /* Leaderboard */
         .leaderboard {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(243, 186, 47, 0.2);
-        }
-
-        .leaderboard-list {
-            margin-top: 1.5rem;
+            margin-top: 16px;
         }
 
         .leaderboard-item {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .leaderboard-item:hover {
-            background: rgba(243, 186, 47, 0.1);
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 8px;
         }
 
         .leaderboard-rank {
-            font-size: 1.5rem;
-            font-weight: bold;
-            width: 50px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .rank-1 {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: var(--secondary-color);
+        }
+
+        .rank-2 {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+            color: var(--secondary-color);
+        }
+
+        .rank-3 {
+            background: linear-gradient(135deg, #cd7f32, #e6a05c);
+            color: var(--secondary-color);
+        }
+
+        .rank-other {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .leaderboard-user {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .leaderboard-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            overflow: hidden;
+        }
+
+        .leaderboard-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leaderboard-name {
+            font-weight: 500;
+        }
+
+        .leaderboard-value {
+            font-weight: 600;
+        }
+
+        /* Admin Dashboard */
+        .admin-header {
+            background: var(--gradient-admin);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 24px 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .admin-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .admin-subtitle {
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             text-align: center;
         }
 
-        .rank-1 { color: #FFD700; }
-        .rank-2 { color: #C0C0C0; }
-        .rank-3 { color: #CD7F32; }
-
-        .leaderboard-address {
-            flex: 1;
-            margin: 0 1rem;
-            font-family: monospace;
-            color: var(--accent);
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .leaderboard-tickets {
-            background: rgba(243, 186, 47, 0.2);
-            padding: 0.5rem 1rem;
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--subtle-text);
+        }
+
+        .stat-card.users .stat-icon { color: var(--info-color); }
+        .stat-card.tickets .stat-icon { color: var(--primary-color); }
+        .stat-card.refers .stat-icon { color: #ff6b6b; }
+        .stat-card.rewards .stat-icon { color: var(--success-color); }
+        .stat-card.active .stat-icon { color: var(--warning-color); }
+
+        /* Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .chart-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .chart-container {
+            height: 200px;
+            position: relative;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 100%;
+            gap: 10px;
+        }
+
+        .bar {
+            flex: 1;
+            background: var(--gradient-primary);
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .bar:hover {
+            opacity: 0.8;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: var(--subtle-text);
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--subtle-text);
+            font-size: 14px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar-small {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            overflow: hidden;
+        }
+
+        .user-avatar-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
             border-radius: 20px;
-            color: var(--primary);
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(14, 203, 129, 0.2);
+            color: var(--success-color);
+        }
+
+        .status-inactive {
+            background: rgba(246, 70, 93, 0.2);
+            color: var(--danger-color);
+        }
+
+        .status-pending {
+            background: rgba(252, 213, 53, 0.2);
+            color: var(--warning-color);
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 20px;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .export-btn {
+            padding: 8px 16px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 12px;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
         /* Modal */
@@ -872,9 +1031,9 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
+            z-index: 1000;
             align-items: center;
+            justify-content: center;
         }
 
         .modal.active {
@@ -882,12 +1041,12 @@
         }
 
         .modal-content {
-            background: var(--secondary);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 500px;
+            background: var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 24px;
             width: 90%;
-            border: 1px solid var(--primary);
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.3s ease;
         }
 
@@ -906,1768 +1065,1676 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .modal-title {
-            font-size: 1.5rem;
-            color: var(--primary);
+            font-size: 20px;
+            font-weight: 600;
         }
 
         .modal-close {
             background: none;
             border: none;
-            color: var(--light);
-            font-size: 1.5rem;
+            color: var(--subtle-text);
+            font-size: 24px;
             cursor: pointer;
-            transition: color 0.3s ease;
         }
 
-        .modal-close:hover {
-            color: var(--danger);
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 12px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--subtle-text);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .price-display {
+            background: rgba(243, 186, 47, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 14px;
+            color: var(--subtle-text);
+            margin-bottom: 4px;
+        }
+
+        .price-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-color);
         }
 
         /* Notification */
         .notification {
             position: fixed;
-            top: 100px;
-            right: -400px;
-            background: var(--secondary);
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: right 0.3s ease;
-            z-index: 3000;
-            max-width: 350px;
+            top: 80px;
+            right: 16px;
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 500;
+            max-width: 300px;
         }
 
         .notification.show {
-            right: 20px;
-        }
-
-        .notification-icon {
-            font-size: 1.5rem;
+            transform: translateX(0);
         }
 
         .notification.success {
-            border-color: var(--success);
-        }
-
-        .notification.success .notification-icon {
-            color: var(--success);
+            border-left: 4px solid var(--success-color);
         }
 
         .notification.error {
-            border-color: var(--danger);
+            border-left: 4px solid var(--danger-color);
         }
 
-        .notification.error .notification-icon {
-            color: var(--danger);
+        .notification.warning {
+            border-left: 4px solid var(--warning-color);
         }
 
-        /* Footer */
-        footer {
-            background: rgba(30, 30, 30, 0.95);
-            padding: 2rem 0;
-            margin-top: 4rem;
-            text-align: center;
-            border-top: 1px solid rgba(243, 186, 47, 0.2);
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        .social-links {
+        .notification-message {
+            font-size: 14px;
+            color: var(--subtle-text);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(24, 26, 32, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            padding: 8px 0;
+        }
+
+        .nav-items {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
+            justify-content: space-around;
+            align-items: center;
         }
 
-        .social-link {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 12px;
+            color: var(--subtle-text);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border-radius: 12px;
+            min-width: 60px;
         }
 
-        .social-link:hover {
-            color: var(--primary);
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 4px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+        .nav-item span {
+            font-size: 12px;
+            font-weight: 500;
+        }
 
-            .prize-pool {
-                font-size: 1.5rem;
-            }
+        .nav-item.active {
+            color: var(--primary-color);
+        }
 
-            .stats-bar {
-                gap: 1rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-tabs-container {
-                gap: 1rem;
-                overflow-x: auto;
-            }
-
-            .wallet-input-group {
-                flex-direction: column;
-            }
-
-            .tasks-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .referral-link-wrapper {
-                flex-direction: column;
-            }
-
-            .referral-actions {
-                flex-direction: column;
-            }
+        .nav-item:hover:not(.active) {
+            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         /* Loading Spinner */
-        .spinner {
-            border: 3px solid rgba(243, 186, 47, 0.3);
-            border-top: 3px solid var(--primary);
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            to { transform: rotate(360deg); }
         }
 
-        /* Ticket Counter */
-        .ticket-counter {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--bnb-gradient);
-            color: var(--dark);
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(243, 186, 47, 0.4);
-            z-index: 100;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 3rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .ads-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .status-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .action-buttons {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation" id="bgAnimation"></div>
-
-    <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">
-                <i class="fab fa-btc"></i>
-                <span>BNB Mega Giveaway</span>
-            </div>
-            <div class="countdown-timer">
-                <i class="fas fa-clock"></i>
-                <div class="timer-unit">
-                    <div class="timer-value" id="days">00</div>
-                    <div class="timer-label">Days</div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fab fa-binance"></i>
+                    <span>Binance Megadrop</span>
                 </div>
-                <div class="timer-unit">
-                    <div class="timer-value" id="hours">00</div>
-                    <div class="timer-label">Hours</div>
-                </div>
-                <div class="timer-unit">
-                    <div class="timer-value" id="minutes">00</div>
-                    <div class="timer-label">Mins</div>
-                </div>
-                <div class="timer-unit">
-                    <div class="timer-value" id="seconds">00</div>
-                    <div class="timer-label">Secs</div>
+                <div class="user-info">
+                    <span class="user-name" id="userName">Loading...</span>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Navigation Tabs -->
-    <nav class="nav-tabs">
-        <div class="nav-tabs-container">
-            <div class="nav-tab active" onclick="switchTab('home')">
-                <i class="fas fa-home"></i> Home
+    <main class="container">
+        <!-- Home View -->
+        <div id="homeView" class="view-container active">
+            <!-- Countdown Section -->
+            <section class="countdown-section">
+                <h2 class="countdown-title">Giveaway Ends In</h2>
+                <div class="countdown-timer" id="countdown">
+                    <div class="time-block">
+                        <div class="time-value" id="days">09</div>
+                        <div class="time-label">Days</div>
+                    </div>
+                    <div class="time-block">
+                        <div class="time-value" id="hours">23</div>
+                        <div class="time-label">Hours</div>
+                    </div>
+                    <div class="time-block">
+                        <div class="time-value" id="minutes">59</div>
+                        <div class="time-label">Minutes</div>
+                    </div>
+                    <div class="time-block">
+                        <div class="time-value" id="seconds">45</div>
+                        <div class="time-label">Seconds</div>
+                    </div>
+                </div>
+                <p class="prize-pool">Prize Pool: <span style="font-weight: bold;">100,000 USDT</span></p>
+            </section>
+
+            <!-- Status Cards -->
+            <div class="status-cards">
+                <div class="status-card wallet">
+                    <div class="status-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="status-value" id="walletBalance">0.00</div>
+                    <div class="status-label">USDT Balance</div>
+                </div>
+                <div class="status-card tickets">
+                    <div class="status-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="status-value" id="ticketCount">0</div>
+                    <div class="status-label">Tickets</div>
+                </div>
+                <div class="status-card referrals">
+                    <div class="status-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="status-value" id="referralCount">0</div>
+                    <div class="status-label">Referrals</div>
+                </div>
             </div>
-            <div class="nav-tab" onclick="switchTab('referrals')">
-                <i class="fas fa-users"></i> Referrals
+
+            <!-- Participation Section -->
+            <section class="participation-section" id="participationSection">
+                <div class="participation-header">
+                    <div class="participation-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h2 class="participation-title">You're Participating!</h2>
+                        <p class="participation-subtitle">Good luck in the giveaway!</p>
+                    </div>
+                </div>
+                <div class="ticket-info">
+                    <div>
+                        <div class="ticket-count-display" id="ticketCountDisplay">0</div>
+                        <div class="ticket-chance">Ticket(s) Owned</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="ticket-count-display" id="winChanceDisplay">0%</div>
+                        <div class="ticket-chance">Win Chance</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-bolt"></i>
+                        Quick Actions
+                    </h2>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="quickBuyTicketsBtn">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Buy Tickets</span>
+                    </button>
+                    <button class="action-btn refer" id="quickShareBtn">
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="action-btn secondary" id="quickWithdrawBtn" disabled>
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Withdraw</span>
+                    </button>
+                </div>
             </div>
-            <div class="nav-tab" onclick="switchTab('dashboard')">
-                <i class="fas fa-chart-line"></i> Dashboard
+        </div>
+
+        <!-- Wallet View -->
+        <div id="walletView" class="view-container">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-wallet"></i>
+                        My Wallet
+                    </h2>
+                </div>
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 36px; font-weight: bold; color: var(--primary-color); margin-bottom: 8px;" id="walletBalanceLarge">0.00</div>
+                    <div style="color: var(--subtle-text);">USDT Balance</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="walletBuyTicketsBtn">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Buy Tickets</span>
+                    </button>
+                    <button class="action-btn secondary" id="walletWithdrawBtn" disabled>
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Withdraw</span>
+                    </button>
+                </div>
             </div>
-            <div class="nav-tab" onclick="switchTab('tasks')">
-                <i class="fas fa-tasks"></i> Tasks
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-history"></i>
+                        Transaction History
+                    </h2>
+                </div>
+                <div id="transactionHistory" class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
             </div>
-            <div class="nav-tab" onclick="switchTab('leaderboard')">
-                <i class="fas fa-trophy"></i> Leaderboard
+        </div>
+
+        <!-- Tasks View -->
+        <div id="tasksView" class="view-container">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-tasks"></i>
+                        Social Tasks
+                    </h2>
+                </div>
+                <p class="section-subtitle">Complete tasks to earn 2 USDT each</p>
+                
+                <div id="socialTasks" class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-ad"></i>
+                        Watch Ads
+                    </h2>
+                </div>
+                <p class="section-subtitle">Earn 2.50 USDT per ad</p>
+                
+                <div id="adsContainer" class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tickets View -->
+        <div id="ticketsView" class="view-container">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-ticket-alt"></i>
+                        My Tickets
+                    </h2>
+                </div>
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 36px; font-weight: bold; color: var(--primary-color); margin-bottom: 8px;" id="ticketCountLarge">0</div>
+                    <div style="color: var(--subtle-text);">Tickets Owned</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="ticketsBuyBtn">
+                        <i class="fas fa-plus"></i>
+                        <span>Buy More</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-percentage"></i>
+                        Win Chance
+                    </h2>
+                </div>
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size: 36px; font-weight: bold; color: var(--success-color); margin-bottom: 8px;" id="winChanceLarge">0%</div>
+                    <div style="color: var(--subtle-text);">Based on total tickets sold</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-history"></i>
+                        Ticket History
+                    </h2>
+                </div>
+                <div id="ticketHistory" class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refer View -->
+        <div id="referView" class="view-container">
+            <section class="refer-section">
+                <div class="refer-header">
+                    <div class="refer-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div>
+                        <h2 class="refer-title">Refer & Earn</h2>
+                        <p class="refer-subtitle">Invite friends and get 1 ticket per referral!</p>
+                    </div>
+                </div>
+                <div class="refer-code-container">
+                    <div class="refer-code-label">Your Referral Code</div>
+                    <div class="refer-code-wrapper">
+                        <div class="refer-code" id="referCode">MEGA2024</div>
+                        <button class="copy-btn" id="copyCodeBtn">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="refer-link-container">
+                    <div class="refer-code-label">Referral Link</div>
+                    <div class="refer-link" id="referLink">https://t.me/BinanceMegadropBot?start=MEGA2024</div>
+                </div>
+                <div class="refer-stats">
+                    <div class="refer-stat">
+                        <div class="refer-stat-value" id="totalRefers">0</div>
+                        <div class="refer-stat-label">Total Referrals</div>
+                    </div>
+                    <div class="refer-stat">
+                        <div class="refer-stat-value" id="referTickets">0</div>
+                        <div class="refer-stat-label">Tickets Earned</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-trophy"></i>
+                        Top Referrers
+                    </h2>
+                </div>
+                <div id="topReferrers" class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin View -->
+        <div id="adminView" class="view-container">
+            <div class="admin-header">
+                <h1 class="admin-title">Admin Dashboard</h1>
+                <p class="admin-subtitle">Monitor and manage all user activities</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card users">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value" id="totalUsersStat">0</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                <div class="stat-card tickets">
+                    <div class="stat-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="stat-value" id="totalTicketsStat">0</div>
+                    <div class="stat-label">Total Tickets</div>
+                </div>
+                <div class="stat-card refers">
+                    <div class="stat-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="stat-value" id="totalReferralsStat">0</div>
+                    <div class="stat-label">Total Referrals</div>
+                </div>
+                <div class="stat-card rewards">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-value" id="totalRewardsStat">0</div>
+                    <div class="stat-label">USDT Distributed</div>
+                </div>
+                <div class="stat-card active">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-value" id="activeTodayStat">0</div>
+                    <div class="stat-label">Active Today</div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3 class="chart-title">Daily Registrations</h3>
+                    <div class="chart-container">
+                        <div class="bar-chart" id="registrationChart">
+                            <div class="bar" style="height: 60%;">
+                                <span class="bar-value">120</span>
+                                <span class="bar-label">Mon</span>
+                            </div>
+                            <div class="bar" style="height: 80%;">
+                                <span class="bar-value">156</span>
+                                <span class="bar-label">Tue</span>
+                            </div>
+                            <div class="bar" style="height: 45%;">
+                                <span class="bar-value">89</span>
+                                <span class="bar-label">Wed</span>
+                            </div>
+                            <div class="bar" style="height: 90%;">
+                                <span class="bar-value">178</span>
+                                <span class="bar-label">Thu</span>
+                            </div>
+                            <div class="bar" style="height: 70%;">
+                                <span class="bar-value">134</span>
+                                <span class="bar-label">Fri</span>
+                            </div>
+                            <div class="bar" style="height: 85%;">
+                                <span class="bar-value">167</span>
+                                <span class="bar-label">Sat</span>
+                            </div>
+                            <div class="bar" style="height: 55%;">
+                                <span class="bar-value">108</span>
+                                <span class="bar-label">Sun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Referral Performance</h3>
+                    <div class="chart-container">
+                        <div class="bar-chart" id="referralChart">
+                            <div class="bar" style="height: 75%; background: linear-gradient(135deg, #ff6b6b, #ff8e53);">
+                                <span class="bar-value">45</span>
+                                <span class="bar-label">Direct</span>
+                            </div>
+                            <div class="bar" style="height: 60%; background: linear-gradient(135deg, #f093fb, #f5576c);">
+                                <span class="bar-value">36</span>
+                                <span class="bar-label">Level 2</span>
+                            </div>
+                            <div class="bar" style="height: 45%; background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                                <span class="bar-value">27</span>
+                                <span class="bar-label">Level 3</span>
+                            </div>
+                            <div class="bar" style="height: 30%; background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                                <span class="bar-value">18</span>
+                                <span class="bar-label">Level 4</span>
+                            </div>
+                            <div class="bar" style="height: 20%; background: linear-gradient(135deg, #fa709a, #fee140);">
+                                <span class="bar-value">12</span>
+                                <span class="bar-label">Level 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Activity Table -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-users"></i>
+                        Recent User Activity
+                    </h2>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="active">Active</button>
+                            <button class="filter-btn" data-filter="referrers">Top Referrers</button>
+                        </div>
+                        <button class="export-btn" id="exportBtn">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Join Date</th>
+                                <th>Balance</th>
+                                <th>Tickets</th>
+                                <th>Referrals</th>
+                                <th>Status</th>
+                                <th>Last Active</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userActivityTable">
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 20px;">
+                                    <div class="loading-spinner"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-items">
+            <div class="nav-item active" data-view="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-view="wallet">
+                <i class="fas fa-wallet"></i>
+                <span>Wallet</span>
+            </div>
+            <div class="nav-item" data-view="tasks">
+                <i class="fas fa-tasks"></i>
+                <span>Tasks</span>
+            </div>
+            <div class="nav-item" data-view="tickets">
+                <i class="fas fa-ticket-alt"></i>
+                <span>Tickets</span>
+            </div>
+            <div class="nav-item" data-view="refer">
+                <i class="fas fa-share-alt"></i>
+                <span>Refer</span>
+            </div>
+            <div class="nav-item" data-view="admin">
+                <i class="fas fa-cog"></i>
+                <span>Admin</span>
             </div>
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Home Tab -->
-        <div id="home-tab" class="tab-content active">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1>🎉 WIN 10 BNB 🎉</h1>
-                <div class="prize-pool">Total Prize Pool: <span id="totalPrize">10 BNB</span></div>
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <div class="stat-value" id="totalParticipants">0</div>
-                        <div class="stat-label">Participants</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="totalTasks">0</div>
-                        <div class="stat-label">Tasks Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="winners">50</div>
-                        <div class="stat-label">Winners</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Wallet Section -->
-            <section class="wallet-section">
-                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">
-                    <i class="fas fa-wallet"></i> Connect Your BEP-20 Wallet
-                </h2>
-                <div class="wallet-input-group">
-                    <input type="text" 
-                           class="wallet-input" 
-                           id="walletAddress" 
-                           placeholder="Enter your BEP-20 wallet address (0x...)"
-                           maxlength="42">
-                    <button class="btn" id="connectWallet" onclick="connectWallet()">
-                        Connect Wallet
-                    </button>
-                </div>
-                <div id="walletStatus" class="wallet-status status-disconnected">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span>Wallet not connected</span>
-                </div>
-            </section>
-        </div>
-
-        <!-- Referrals Tab -->
-        <div id="referrals-tab" class="tab-content">
-            <div class="referral-section">
-                <div class="referral-header">
-                    <h2 class="referral-title">
-                        <i class="fas fa-users"></i> Increase Your Winning Chances!
-                    </h2>
-                    <p class="referral-subtitle">Get +2% winning chance for every successful referral</p>
-                </div>
-
-                <div class="referral-stats">
-                    <div class="referral-stat-card">
-                        <div class="referral-stat-value" id="totalReferrals">0</div>
-                        <div class="referral-stat-label">Total Referrals</div>
-                    </div>
-                    <div class="referral-stat-card">
-                        <div class="referral-stat-value" id="referralBonus">0%</div>
-                        <div class="referral-stat-label">Winning Bonus</div>
-                    </div>
-                    <div class="referral-stat-card">
-                        <div class="referral-stat-value" id="baseChance">1%</div>
-                        <div class="referral-stat-label">Base Chance</div>
-                    </div>
-                </div>
-
-                <div class="referral-link-container">
-                    <h3 style="margin-bottom: 1rem; color: var(--primary);">
-                        <i class="fas fa-link"></i> Your Referral Link
-                    </h3>
-                    <div class="referral-link-wrapper">
-                        <div class="referral-link" id="referralLink">
-                            Connect wallet to generate your referral link
-                        </div>
-                        <button class="btn" onclick="copyReferralLink()" id="copyBtn" disabled>
-                            <i class="fas fa-copy"></i> Copy
-                        </button>
-                    </div>
-                </div>
-
-                <div class="referral-actions">
-                    <button class="btn" onclick="shareReferral()" id="shareBtn" disabled>
-                        <i class="fas fa-share-alt"></i> Share Link
-                    </button>
-                    <button class="btn btn-secondary" onclick="showReferralStats()">
-                        <i class="fas fa-chart-bar"></i> View Stats
-                    </button>
-                </div>
-
-                <div class="winning-chance">
-                    <div class="chance-value" id="totalWinningChance">1%</div>
-                    <div class="chance-label">Your Total Winning Chance</div>
-                </div>
-            </div>
-
-            <!-- Referrals List -->
-            <div class="referrals-list">
-                <h3>
-                    <i class="fas fa-user-friends"></i> Your Referrals
-                </h3>
-                <div id="referralsList">
-                    <div class="empty-state">
-                        <i class="fas fa-user-plus"></i>
-                        <p>No referrals yet. Share your link to start earning bonus chances!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dashboard Tab -->
-        <div id="dashboard-tab" class="tab-content">
-            <div class="dashboard-header">
-                <h1 class="dashboard-title">
-                    <i class="fas fa-chart-line"></i> Your Dashboard
-                </h1>
-                <div class="dashboard-actions">
-                    <button class="btn btn-secondary" onclick="exportData()">
-                        <i class="fas fa-download"></i> Export Data
-                    </button>
-                    <button class="btn btn-secondary" onclick="clearData()">
-                        <i class="fas fa-trash"></i> Clear Data
-                    </button>
-                </div>
-            </div>
-
-            <!-- Profile Section -->
-            <div class="profile-section">
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="profile-info">
-                        <h2 id="profileName">Guest User</h2>
-                        <p id="profileWallet">Not connected</p>
-                        <p style="margin-top: 0.5rem;">
-                            <i class="fas fa-calendar"></i> Joined: <span id="joinDate">-</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dashboard Stats Grid -->
-            <div class="dashboard-grid">
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <div class="dashboard-card-title">
-                            <i class="fas fa-ticket-alt"></i> Total Tickets
-                        </div>
-                        <i class="dashboard-card-icon fas fa-chart-line"></i>
-                    </div>
-                    <div class="dashboard-card-value" id="dashboardTickets">0</div>
-                </div>
-
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <div class="dashboard-card-title">
-                            <i class="fas fa-check-circle"></i> Tasks Completed
-                        </div>
-                        <i class="dashboard-card-icon fas fa-tasks"></i>
-                    </div>
-                    <div class="dashboard-card-value" id="dashboardCompleted">0</div>
-                </div>
-
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <div class="dashboard-card-title">
-                            <i class="fas fa-percentage"></i> Completion Rate
-                        </div>
-                        <i class="dashboard-card-icon fas fa-chart-pie"></i>
-                    </div>
-                    <div class="progress-text" id="completionRate">0%</div>
-                    <svg class="progress-ring" viewBox="0 0 120 120">
-                        <circle class="progress-ring-circle" 
-                                stroke="rgba(243, 186, 47, 0.2)" 
-                                stroke-width="8" 
-                                fill="transparent" 
-                                r="52" 
-                                cx="60" 
-                                cy="60"/>
-                        <circle id="progressCircle" 
-                                class="progress-ring-circle" 
-                                stroke="#F3BA2F" 
-                                stroke-width="8" 
-                                fill="transparent" 
-                                r="52" 
-                                cx="60" 
-                                cy="60"
-                                stroke-dasharray="326.73"
-                                stroke-dashoffset="326.73"/>
-                    </svg>
-                </div>
-
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <div class="dashboard-card-title">
-                            <i class="fas fa-users"></i> Referrals
-                        </div>
-                        <i class="dashboard-card-icon fas fa-user-friends"></i>
-                    </div>
-                    <div class="dashboard-card-value" id="dashboardReferrals">0</div>
-                </div>
-
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <div class="dashboard-card-title">
-                            <i class="fas fa-percentage"></i> Win Chance
-                        </div>
-                        <i class="dashboard-card-icon fas fa-trophy"></i>
-                    </div>
-                    <div class="dashboard-card-value" id="dashboardWinChance">1%</div>
-                </div>
-
-                <div class="dashboard-card">
-                    <div class="dashboard-card-header">
-                        <div class="dashboard-card-title">
-                            <i class="fas fa-clock"></i> Last Activity
-                        </div>
-                        <i class="dashboard-card-icon fas fa-history"></i>
-                    </div>
-                    <div style="color: var(--accent);" id="lastActivity">No activity yet</div>
-                </div>
-            </div>
-
-            <!-- Activity Timeline -->
-            <div class="activity-timeline">
-                <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
-                    <i class="fas fa-history"></i> Recent Activity
-                </h3>
-                <div id="activityList">
-                    <div class="empty-state">
-                        <i class="fas fa-inbox"></i>
-                        <p>No activity yet. Complete some tasks to see your activity here!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tasks Tab -->
-        <div id="tasks-tab" class="tab-content">
-            <section class="tasks-section">
-                <h2 class="section-title">
-                    <i class="fas fa-tasks"></i> Complete Tasks for More Tickets
-                </h2>
-                <div class="tasks-grid" id="tasksGrid">
-                    <!-- Tasks will be dynamically generated -->
-                </div>
-            </section>
-        </div>
-
-        <!-- Leaderboard Tab -->
-        <div id="leaderboard-tab" class="tab-content">
-            <section class="leaderboard">
-                <h2 class="section-title">
-                    <i class="fas fa-trophy"></i> Top Participants
-                </h2>
-                <div class="leaderboard-list" id="leaderboardList">
-                    <!-- Leaderboard items will be dynamically generated -->
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 BNB Mega Giveaway. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#" class="social-link" onclick="openSocial('telegram')">
-                <i class="fab fa-telegram"></i>
-            </a>
-            <a href="#" class="social-link" onclick="openSocial('twitter')">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-link" onclick="openSocial('discord')">
-                <i class="fab fa-discord"></i>
-            </a>
-            <a href="#" class="social-link" onclick="openSocial('youtube')">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
-    </footer>
-
-    <!-- Ticket Counter -->
-    <div class="ticket-counter" id="ticketCounter" style="display: none;">
-        <i class="fas fa-ticket-alt"></i> Your Tickets: <span id="userTickets">0</span>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal" id="taskModal">
+    <!-- Buy Tickets Modal -->
+    <div class="modal" id="buyTicketsModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="modalTitle">Task Details</h3>
-                <button class="modal-close" onclick="closeModal()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <h3 class="modal-title">Buy Tickets</h3>
+                <button class="modal-close" id="closeBuyModal">&times;</button>
             </div>
-            <div id="modalBody">
-                <!-- Modal content will be dynamically inserted -->
+            <div class="modal-body">
+                <div class="price-display">
+                    <div class="price-label">Price per ticket</div>
+                    <div class="price-value">20 USDT</div>
+                </div>
+                <div class="input-group">
+                    <label for="ticketQuantity">Number of tickets</label>
+                    <input type="number" id="ticketQuantity" min="1" value="1">
+                </div>
+                <div class="price-display">
+                    <div class="price-label">Total cost</div>
+                    <div class="price-value" id="totalCost">20 USDT</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="action-btn secondary" id="cancelBuyBtn">Cancel</button>
+                <button class="action-btn primary" id="confirmBuyBtn">Buy Now</button>
             </div>
         </div>
     </div>
 
     <!-- Notification -->
     <div class="notification" id="notification">
-        <i class="notification-icon fas fa-check-circle"></i>
-        <div>
-            <div id="notificationTitle" style="font-weight: bold;">Success!</div>
-            <div id="notificationMessage" style="font-size: 0.9rem; opacity: 0.8;">Task completed</div>
-        </div>
+        <div class="notification-title" id="notificationTitle">Success</div>
+        <div class="notification-message" id="notificationMessage">Operation completed successfully</div>
     </div>
 
     <!-- Firebase SDK -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
-        import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, addDoc, deleteDoc, query, where, orderBy, limit, onSnapshot, serverTimestamp, runTransaction } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
 
-        // Your web app's Firebase configuration
+    <script>
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyAhaqx7L8q5pCErj-XOUdlcURr01VCcBAI",
             authDomain: "bnb-megadrop-giveway.firebaseapp.com",
             projectId: "bnb-megadrop-giveway",
             storageBucket: "bnb-megadrop-giveway.firebasestorage.app",
             messagingSenderId: "939519289365",
-            appId: "1:939519289365:web:50439a82fd70b96598c61c",
-            measurementId: "G-4D8F900B5W"
+            appId: "1:939519289365:web:59078d306365699298c61c"
         };
 
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
 
-        // Make Firebase services available to the rest of the app
-        window.firebaseDB = db;
-        window.serverTimestamp = serverTimestamp;
-        window.runTransaction = runTransaction;
-    </script>
+        // Initialize Telegram Web App
+        const tg = window.Telegram?.WebApp;
+        let currentUser = null;
+        let userData = null;
 
-    <script>
-        // Global State
-        let appState = {
-            walletConnected: false,
-            walletAddress: '',
-            userTickets: 0,
-            completedTasks: [],
-            activities: [],
-            joinDate: null,
-            currentStreak: 0,
-            lastActivityDate: null,
-            referrals: [],
-            referralCode: '',
-            baseWinChance: 1,
-            referralBonus: 0,
-            tasks: [
-                // Watch Ad Tasks (10 ads)
-                {
-                    id: 'watch_ad_1',
-                    title: 'Watch Advertisement #1',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_2',
-                    title: 'Watch Advertisement #2',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_3',
-                    title: 'Watch Advertisement #3',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_4',
-                    title: 'Watch Advertisement #4',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_5',
-                    title: 'Watch Advertisement #5',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_6',
-                    title: 'Watch Advertisement #6',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_7',
-                    title: 'Watch Advertisement #7',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_8',
-                    title: 'Watch Advertisement #8',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_9',
-                    title: 'Watch Advertisement #9',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                {
-                    id: 'watch_ad_10',
-                    title: 'Watch Advertisement #10',
-                    description: 'Watch an advertisement to earn tickets',
-                    icon: 'fa-ad',
-                    reward: 1,
-                    type: 'ad',
-                    progress: 0
-                },
-                // Social Media Tasks (6)
-                {
-                    id: 'youtube_subscribe',
-                    title: 'Subscribe on YouTube',
-                    description: 'Subscribe to our YouTube channel',
-                    icon: 'fa-youtube',
-                    reward: 1,
-                    type: 'social',
-                    link: 'https://youtube.com/example',
-                    progress: 0
-                },
-                {
-                    id: 'telegram_channel',
-                    title: 'Join Telegram Channel',
-                    description: 'Join our official Telegram channel',
-                    icon: 'fa-telegram',
-                    reward: 1,
-                    type: 'social',
-                    link: 'https://t.me/example',
-                    progress: 0
-                },
-                {
-                    id: 'telegram_announcement',
-                    title: 'Join Telegram Announcement Group',
-                    description: 'Join our Telegram announcement group for updates',
-                    icon: 'fa-bullhorn',
-                    reward: 1,
-                    type: 'social',
-                    link: 'https://t.me/example_announcements',
-                    progress: 0
-                },
-                {
-                    id: 'facebook_follow',
-                    title: 'Follow Facebook Page',
-                    description: 'Follow our official Facebook page',
-                    icon: 'fa-facebook',
-                    reward: 1,
-                    type: 'social',
-                    link: 'https://facebook.com/example',
-                    progress: 0
-                },
-                {
-                    id: 'twitter_follow',
-                    title: 'Follow Twitter Account',
-                    description: 'Follow our official Twitter account',
-                    icon: 'fa-twitter',
-                    reward: 1,
-                    type: 'social',
-                    link: 'https://twitter.com/example',
-                    progress: 0
-                },
-                {
-                    id: 'discord_join',
-                    title: 'Join Discord Server',
-                    description: 'Join our Discord community server',
-                    icon: 'fa-discord',
-                    reward: 1,
-                    type: 'social',
-                    link: 'https://discord.gg/example',
-                    progress: 0
-                },
-                // Other Tasks (4)
-                {
-                    id: 'share_giveaway',
-                    title: 'Share Giveaway',
-                    description: 'Share this giveaway with your friends',
-                    icon: 'fa-share-alt',
-                    reward: 1,
-                    type: 'share',
-                    progress: 0
-                },
-                {
-                    id: 'daily_checkin',
-                    title: 'Daily Check-in',
-                    description: 'Check in daily to maintain your streak',
-                    icon: 'fa-calendar-check',
-                    reward: 1,
-                    type: 'daily',
-                    progress: 0
-                },
-                {
-                    id: 'visit_website',
-                    title: 'Visit Our Website',
-                    description: 'Visit our official website for more information',
-                    icon: 'fa-globe',
-                    reward: 1,
-                    type: 'visit',
-                    link: 'https://example.com',
-                    progress: 0
-                },
-                {
-                    id: 'join_newsletter',
-                    title: 'Join Newsletter',
-                    description: 'Subscribe to our newsletter for updates',
-                    icon: 'fa-envelope',
-                    reward: 1,
-                    type: 'newsletter',
-                    progress: 0
+        // Collection references
+        const usersCollection = db.collection('users');
+        const tasksCollection = db.collection('tasks');
+        const transactionsCollection = db.collection('transactions');
+        const referralsCollection = db.collection('referrals');
+
+        // Initialize app
+        async function initializeApp() {
+            try {
+                // Try to get Telegram user data
+                if (tg && tg.initDataUnsafe?.user) {
+                    const telegramUser = tg.initDataUnsafe.user;
+                    const fullName = `${telegramUser.first_name || ''} ${telegramUser.last_name || ''}`.trim();
+                    const displayName = fullName || telegramUser.username || 'User';
+                    
+                    document.getElementById('userName').textContent = displayName;
+                    
+                    const avatarElement = document.getElementById('userAvatar');
+                    if (telegramUser.photo_url) {
+                        avatarElement.innerHTML = `<img src="${telegramUser.photo_url}" alt="${displayName}">`;
+                    } else {
+                        avatarElement.textContent = displayName[0].toUpperCase();
+                    }
+                    
+                    // Check if user exists in Firestore
+                    const userDoc = await usersCollection.doc(telegramUser.id.toString()).get();
+                    
+                    if (!userDoc.exists) {
+                        // Create new user
+                        userData = {
+                            telegramId: telegramUser.id.toString(),
+                            firstName: telegramUser.first_name || '',
+                            lastName: telegramUser.last_name || '',
+                            username: telegramUser.username || '',
+                            displayName: displayName,
+                            photoUrl: telegramUser.photo_url || '',
+                            balance: 0,
+                            tickets: 0,
+                            totalReferrals: 0,
+                            referralTickets: 0,
+                            referralCode: generateReferralCode(),
+                            completedTasks: [],
+                            completedAds: [],
+                            lastCheckIn: null,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                            lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
+                        };
+                        
+                        await usersCollection.doc(telegramUser.id.toString()).set(userData);
+                    } else {
+                        userData = userDoc.data();
+                        // Update last active time
+                        await usersCollection.doc(telegramUser.id.toString()).update({
+                            lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                    }
+                    
+                    currentUser = telegramUser;
+                } else {
+                    // Fallback for testing outside Telegram
+                    document.getElementById('userName').textContent = 'Guest User';
+                    document.getElementById('userAvatar').textContent = 'G';
+                    
+                    // Create a temporary guest user
+                    userData = {
+                        telegramId: 'guest_' + Math.random().toString(36).substr(2, 9),
+                        displayName: 'Guest User',
+                        balance: 0,
+                        tickets: 0,
+                        totalReferrals: 0,
+                        referralTickets: 0,
+                        referralCode: generateReferralCode(),
+                        completedTasks: [],
+                        completedAds: [],
+                        lastCheckIn: null,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
+                    };
                 }
-            ],
-            leaderboard: []
-        };
+                
+                // Update UI with user data
+                updateUI();
+                
+                // Check for referral in URL
+                checkReferral();
+                
+                // Load data for current view
+                loadViewData();
+                
+            } catch (error) {
+                console.error("Error initializing app:", error);
+                showNotification('Error', 'Failed to initialize app', 'error');
+            }
+        }
 
-        // Initialize App
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Initializing app...');
-            console.log('Total tasks:', appState.tasks.length);
-            initializeApp();
-            createFloatingBNB();
-            startCountdown();
-            renderTasks();
-            setupRealtimeListeners();
-            loadGlobalStats();
-            checkReferralCode();
+        // Generate unique referral code
+        function generateReferralCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = 'MEGA';
+            for (let i = 0; i < 4; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        // Update UI with user data
+        function updateUI() {
+            if (!userData) return;
+            
+            // Update balance displays
+            document.getElementById('walletBalance').textContent = userData.balance.toFixed(2);
+            document.getElementById('walletBalanceLarge').textContent = userData.balance.toFixed(2);
+            
+            // Update ticket displays
+            document.getElementById('ticketCount').textContent = userData.tickets;
+            document.getElementById('ticketCountLarge').textContent = userData.tickets;
+            document.getElementById('ticketCountDisplay').textContent = userData.tickets;
+            
+            // Update referral displays
+            document.getElementById('referralCount').textContent = userData.totalReferrals;
+            document.getElementById('totalRefers').textContent = userData.totalReferrals;
+            document.getElementById('referTickets').textContent = userData.referralTickets;
+            
+            // Update referral code and link
+            document.getElementById('referCode').textContent = userData.referralCode;
+            document.getElementById('referLink').textContent = `https://t.me/BinanceMegadropBot?start=${userData.referralCode}`;
+            
+            // Calculate and update win chance
+            updateWinChance();
+            
+            // Show/hide participation section
+            const participationSection = document.getElementById('participationSection');
+            if (userData.tickets > 0) {
+                participationSection.classList.add('active');
+            } else {
+                participationSection.classList.remove('active');
+            }
+        }
+
+        // Update win chance
+        async function updateWinChance() {
+            try {
+                // Get total tickets sold from a stats document
+                const statsDoc = await db.collection('stats').doc('global').get();
+                let totalTicketsSold = 100; // Default value
+                
+                if (statsDoc.exists) {
+                    totalTicketsSold = statsDoc.data().totalTicketsSold || 100;
+                }
+                
+                const winChance = ((userData.tickets / (totalTicketsSold + userData.tickets)) * 100).toFixed(2);
+                document.getElementById('winChanceDisplay').textContent = `${winChance}%`;
+                document.getElementById('winChanceLarge').textContent = `${winChance}%`;
+            } catch (error) {
+                console.error("Error calculating win chance:", error);
+            }
+        }
+
+        // Load data for current view
+        async function loadViewData() {
+            const activeView = document.querySelector('.view-container.active').id;
+            
+            switch (activeView) {
+                case 'walletView':
+                    await loadTransactionHistory();
+                    break;
+                case 'tasksView':
+                    await loadTasks();
+                    await loadAds();
+                    break;
+                case 'ticketsView':
+                    await loadTicketHistory();
+                    break;
+                case 'referView':
+                    await loadTopReferrers();
+                    break;
+                case 'adminView':
+                    await loadAdminStats();
+                    await loadUserActivity();
+                    break;
+            }
+        }
+
+        // Load transaction history
+        async function loadTransactionHistory() {
+            try {
+                const container = document.getElementById('transactionHistory');
+                container.innerHTML = '<div class="loading-spinner"></div>';
+                
+                const snapshot = await transactionsCollection
+                    .where('userId', '==', userData.telegramId)
+                    .orderBy('createdAt', 'desc')
+                    .limit(10)
+                    .get();
+                
+                if (snapshot.empty) {
+                    container.innerHTML = `
+                        <div style="padding: 20px 0; text-align: center; color: var(--subtle-text);">
+                            <i class="fas fa-inbox" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                            <p>No transactions yet</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '';
+                snapshot.forEach(doc => {
+                    const transaction = doc.data();
+                    const date = transaction.createdAt.toDate();
+                    const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                    
+                    html += `
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-title">${transaction.type}</div>
+                                <div class="task-reward">${transaction.amount > 0 ? '+' : ''}${transaction.amount} USDT</div>
+                            </div>
+                            <div class="task-description">${transaction.description}</div>
+                            <div style="font-size: 12px; color: var(--subtle-text);">${formattedDate}</div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            } catch (error) {
+                console.error("Error loading transaction history:", error);
+                document.getElementById('transactionHistory').innerHTML = '<p style="text-align: center; color: var(--danger-color);">Failed to load transactions</p>';
+            }
+        }
+
+        // Load tasks
+        async function loadTasks() {
+            try {
+                const container = document.getElementById('socialTasks');
+                container.innerHTML = '<div class="loading-spinner"></div>';
+                
+                const snapshot = await tasksCollection
+                    .where('type', '==', 'social')
+                    .orderBy('order', 'asc')
+                    .get();
+                
+                let html = '';
+                snapshot.forEach(doc => {
+                    const task = doc.data();
+                    const isCompleted = userData.completedTasks.includes(task.id);
+                    
+                    html += `
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-title">${task.title}</div>
+                                <div class="task-reward">+${task.reward} USDT</div>
+                            </div>
+                            <div class="task-description">${task.description}</div>
+                            <button class="task-button ${isCompleted ? 'completed' : 'start'}" 
+                                    data-task-id="${task.id}" 
+                                    data-reward="${task.reward}"
+                                    ${isCompleted ? 'disabled' : ''}>
+                                <i class="fas ${isCompleted ? 'fa-check' : task.icon}"></i> 
+                                ${isCompleted ? 'Completed' : 'Start Task'}
+                            </button>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                
+                // Add event listeners to task buttons
+                container.querySelectorAll('.task-button.start').forEach(button => {
+                    button.addEventListener('click', handleTaskClick);
+                });
+            } catch (error) {
+                console.error("Error loading tasks:", error);
+                document.getElementById('socialTasks').innerHTML = '<p style="text-align: center; color: var(--danger-color);">Failed to load tasks</p>';
+            }
+        }
+
+        // Load ads
+        async function loadAds() {
+            try {
+                const container = document.getElementById('adsContainer');
+                container.innerHTML = '<div class="loading-spinner"></div>';
+                
+                const snapshot = await tasksCollection
+                    .where('type', '==', 'ad')
+                    .orderBy('order', 'asc')
+                    .get();
+                
+                let html = '<div class="ads-grid">';
+                snapshot.forEach(doc => {
+                    const ad = doc.data();
+                    const isCompleted = userData.completedAds.includes(ad.id);
+                    
+                    html += `
+                        <div class="ad-card ${isCompleted ? 'completed' : ''}" data-ad-id="${ad.id}">
+                            <div class="ad-status">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="ad-image">
+                                <i class="fas ${ad.icon}"></i>
+                            </div>
+                            <div class="ad-title">${ad.title}</div>
+                            <div class="ad-reward">+${ad.reward} USDT</div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                container.innerHTML = html;
+                
+                // Add event listeners to ad cards
+                container.querySelectorAll('.ad-card:not(.completed)').forEach(card => {
+                    card.addEventListener('click', handleAdClick);
+                });
+            } catch (error) {
+                console.error("Error loading ads:", error);
+                document.getElementById('adsContainer').innerHTML = '<p style="text-align: center; color: var(--danger-color);">Failed to load ads</p>';
+            }
+        }
+
+        // Load ticket history
+        async function loadTicketHistory() {
+            try {
+                const container = document.getElementById('ticketHistory');
+                container.innerHTML = '<div class="loading-spinner"></div>';
+                
+                const snapshot = await transactionsCollection
+                    .where('userId', '==', userData.telegramId)
+                    .where('type', '==', 'ticket_purchase')
+                    .orderBy('createdAt', 'desc')
+                    .limit(10)
+                    .get();
+                
+                if (snapshot.empty) {
+                    container.innerHTML = `
+                        <div style="padding: 20px 0; text-align: center; color: var(--subtle-text);">
+                            <i class="fas fa-inbox" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                            <p>No tickets purchased yet</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '';
+                snapshot.forEach(doc => {
+                    const transaction = doc.data();
+                    const date = transaction.createdAt.toDate();
+                    const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                    
+                    html += `
+                        <div class="task-card">
+                            <div class="task-header">
+                                <div class="task-title">Ticket Purchase</div>
+                                <div class="task-reward">${transaction.quantity} Tickets</div>
+                            </div>
+                            <div class="task-description">Cost: ${transaction.amount} USDT</div>
+                            <div style="font-size: 12px; color: var(--subtle-text);">${formattedDate}</div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            } catch (error) {
+                console.error("Error loading ticket history:", error);
+                document.getElementById('ticketHistory').innerHTML = '<p style="text-align: center; color: var(--danger-color);">Failed to load ticket history</p>';
+            }
+        }
+
+        // Load top referrers
+        async function loadTopReferrers() {
+            try {
+                const container = document.getElementById('topReferrers');
+                container.innerHTML = '<div class="loading-spinner"></div>';
+                
+                const snapshot = await usersCollection
+                    .orderBy('totalReferrals', 'desc')
+                    .limit(5)
+                    .get();
+                
+                let html = '';
+                snapshot.forEach((doc, index) => {
+                    const user = doc.data();
+                    const rank = index + 1;
+                    let rankClass = 'rank-other';
+                    
+                    if (rank === 1) rankClass = 'rank-1';
+                    else if (rank === 2) rankClass = 'rank-2';
+                    else if (rank === 3) rankClass = 'rank-3';
+                    
+                    html += `
+                        <div class="leaderboard-item">
+                            <div class="leaderboard-rank ${rankClass}">${rank}</div>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">
+                                    ${user.photoUrl ? `<img src="${user.photoUrl}" alt="${user.displayName}">` : user.displayName[0].toUpperCase()}
+                                </div>
+                                <div class="leaderboard-name">${user.displayName}</div>
+                            </div>
+                            <div class="leaderboard-value">${user.totalReferrals} Referrals</div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            } catch (error) {
+                console.error("Error loading top referrers:", error);
+                document.getElementById('topReferrers').innerHTML = '<p style="text-align: center; color: var(--danger-color);">Failed to load referrers</p>';
+            }
+        }
+
+        // Load admin stats
+        async function loadAdminStats() {
+            try {
+                // Get total users
+                const usersSnapshot = await usersCollection.get();
+                const totalUsers = usersSnapshot.size;
+                document.getElementById('totalUsersStat').textContent = totalUsers;
+                
+                // Get total tickets
+                let totalTickets = 0;
+                usersSnapshot.forEach(doc => {
+                    totalTickets += doc.data().tickets || 0;
+                });
+                document.getElementById('totalTicketsStat').textContent = totalTickets;
+                
+                // Get total referrals
+                let totalReferrals = 0;
+                usersSnapshot.forEach(doc => {
+                    totalReferrals += doc.data().totalReferrals || 0;
+                });
+                document.getElementById('totalReferralsStat').textContent = totalReferrals;
+                
+                // Get total rewards
+                let totalRewards = 0;
+                const transactionsSnapshot = await transactionsCollection.get();
+                transactionsSnapshot.forEach(doc => {
+                    const transaction = doc.data();
+                    if (transaction.amount > 0) {
+                        totalRewards += transaction.amount;
+                    }
+                });
+                document.getElementById('totalRewardsStat').textContent = totalRewards.toFixed(2);
+                
+                // Get active today
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const tomorrow = new Date(today);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                
+                let activeToday = 0;
+                usersSnapshot.forEach(doc => {
+                    const lastActive = doc.data().lastActiveAt?.toDate();
+                    if (lastActive && lastActive >= today && lastActive < tomorrow) {
+                        activeToday++;
+                    }
+                });
+                document.getElementById('activeTodayStat').textContent = activeToday;
+            } catch (error) {
+                console.error("Error loading admin stats:", error);
+            }
+        }
+
+        // Load user activity for admin
+        async function loadUserActivity() {
+            try {
+                const tableBody = document.getElementById('userActivityTable');
+                tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 20px;"><div class="loading-spinner"></div></td></tr>';
+                
+                const snapshot = await usersCollection
+                    .orderBy('lastActiveAt', 'desc')
+                    .limit(20)
+                    .get();
+                
+                let html = '';
+                snapshot.forEach(doc => {
+                    const user = doc.data();
+                    const lastActive = user.lastActiveAt?.toDate();
+                    const formattedDate = lastActive ? 
+                        `${lastActive.toLocaleDateString()} ${lastActive.toLocaleTimeString()}` : 
+                        'Never';
+                    
+                    const joinDate = user.createdAt?.toDate();
+                    const formattedJoinDate = joinDate ? 
+                        joinDate.toLocaleDateString() : 
+                        'Unknown';
+                    
+                    let statusClass = 'status-inactive';
+                    let statusText = 'Inactive';
+                    
+                    if (lastActive) {
+                        const now = new Date();
+                        const diffMs = now - lastActive;
+                        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                        
+                        if (diffDays < 1) {
+                            statusClass = 'status-active';
+                            statusText = 'Active';
+                        } else if (diffDays < 7) {
+                            statusClass = 'status-pending';
+                            statusText = 'Pending';
+                        }
+                    }
+                    
+                    html += `
+                        <tr>
+                            <td>
+                                <div class="user-cell">
+                                    <div class="user-avatar-small">
+                                        ${user.photoUrl ? `<img src="${user.photoUrl}" alt="${user.displayName}">` : user.displayName[0].toUpperCase()}
+                                    </div>
+                                    <span>${user.displayName}</span>
+                                </div>
+                            </td>
+                            <td>${formattedJoinDate}</td>
+                            <td>${user.balance.toFixed(2)} USDT</td>
+                            <td>${user.tickets}</td>
+                            <td>${user.totalReferrals}</td>
+                            <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                            <td>${formattedDate}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableBody.innerHTML = html;
+            } catch (error) {
+                console.error("Error loading user activity:", error);
+                document.getElementById('userActivityTable').innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--danger-color);">Failed to load user activity</td></tr>';
+            }
+        }
+
+        // Handle task click
+        async function handleTaskClick(e) {
+            const button = e.currentTarget;
+            const taskId = button.dataset.taskId;
+            const reward = parseFloat(button.dataset.reward);
+            
+            if (userData.completedTasks.includes(taskId)) {
+                return;
+            }
+            
+            // Special handling for check-in task
+            if (taskId === 'checkin') {
+                const today = new Date().toDateString();
+                if (userData.lastCheckIn === today) {
+                    showNotification('Already Checked In', 'You have already checked in today', 'error');
+                    return;
+                }
+            }
+            
+            // Change button to verify state
+            button.className = 'task-button verify';
+            button.innerHTML = '<i class="fas fa-check-circle"></i> Verify Task';
+            
+            // Simulate task completion
+            setTimeout(async () => {
+                try {
+                    // Update user data
+                    userData.balance += reward;
+                    userData.completedTasks.push(taskId);
+                    
+                    if (taskId === 'checkin') {
+                        const today = new Date().toDateString();
+                        userData.lastCheckIn = today;
+                    }
+                    
+                    // Update in Firestore
+                    await usersCollection.doc(userData.telegramId).update({
+                        balance: userData.balance,
+                        completedTasks: userData.completedTasks,
+                        lastCheckIn: userData.lastCheckIn,
+                        lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    
+                    // Add transaction record
+                    await transactionsCollection.add({
+                        userId: userData.telegramId,
+                        type: 'task_completion',
+                        taskId: taskId,
+                        amount: reward,
+                        description: `Completed task: ${taskId}`,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    
+                    // Update UI
+                    updateUI();
+                    
+                    // Update button
+                    button.className = 'task-button completed';
+                    button.innerHTML = '<i class="fas fa-check"></i> Completed';
+                    button.disabled = true;
+                    
+                    showNotification('Task Completed', `You earned ${reward} USDT!`, 'success');
+                } catch (error) {
+                    console.error("Error completing task:", error);
+                    showNotification('Error', 'Failed to complete task', 'error');
+                    
+                    // Reset button
+                    button.className = 'task-button start';
+                    button.innerHTML = `<i class="fas fa-${button.dataset.icon || 'check'}"></i> Start Task`;
+                }
+            }, 2000);
+        }
+
+        // Handle ad click
+        async function handleAdClick(e) {
+            const adCard = e.currentTarget;
+            const adId = adCard.dataset.adId;
+            
+            if (userData.completedAds.includes(adId)) {
+                return;
+            }
+            
+            showNotification('Watching Ad', 'Please wait 30 seconds to complete...', 'success');
+            
+            // Simulate ad watching
+            setTimeout(async () => {
+                try {
+                    // Get ad data
+                    const adDoc = await tasksCollection.doc(adId).get();
+                    const ad = adDoc.data();
+                    const reward = ad.reward || 2.5;
+                    
+                    // Update user data
+                    userData.balance += reward;
+                    userData.completedAds.push(adId);
+                    
+                    // Update in Firestore
+                    await usersCollection.doc(userData.telegramId).update({
+                        balance: userData.balance,
+                        completedAds: userData.completedAds,
+                        lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    
+                    // Add transaction record
+                    await transactionsCollection.add({
+                        userId: userData.telegramId,
+                        type: 'ad_completion',
+                        adId: adId,
+                        amount: reward,
+                        description: `Watched ad: ${ad.title}`,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    
+                    // Update UI
+                    updateUI();
+                    
+                    // Update ad card
+                    adCard.classList.add('completed');
+                    
+                    showNotification('Ad Completed', `You earned ${reward} USDT!`, 'success');
+                } catch (error) {
+                    console.error("Error completing ad:", error);
+                    showNotification('Error', 'Failed to complete ad', 'error');
+                }
+            }, 3000);
+        }
+
+        // Check for referral in URL
+        async function checkReferral() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referralCode = urlParams.get('start');
+            
+            if (referralCode && referralCode !== userData.referralCode) {
+                try {
+                    // Find referrer by code
+                    const referrerSnapshot = await usersCollection
+                        .where('referralCode', '==', referralCode)
+                        .get();
+                    
+                    if (!referrerSnapshot.empty) {
+                        const referrerId = referrerSnapshot.docs[0].id;
+                        
+                        // Update referrer
+                        await usersCollection.doc(referrerId).update({
+                            totalReferrals: firebase.firestore.FieldValue.increment(1),
+                            referralTickets: firebase.firestore.FieldValue.increment(1),
+                            tickets: firebase.firestore.FieldValue.increment(1),
+                            lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        
+                        // Add referral record
+                        await referralsCollection.add({
+                            referrerId: referrerId,
+                            referredId: userData.telegramId,
+                            referralCode: referralCode,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        
+                        showNotification('Referral Applied', 'You were referred by another user!', 'success');
+                    }
+                } catch (error) {
+                    console.error("Error processing referral:", error);
+                }
+            }
+        }
+
+        // Copy referral code
+        document.getElementById('copyCodeBtn').addEventListener('click', () => {
+            const code = userData.referralCode;
+            navigator.clipboard.writeText(code).then(() => {
+                showNotification('Copied!', 'Referral code copied to clipboard', 'success');
+            });
         });
 
-        // Tab Switching
-        function switchTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remove active class from all nav tabs
-            document.querySelectorAll('.nav-tab').forEach(navTab => {
-                navTab.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(`${tabName}-tab`).classList.add('active');
-            
-            // Add active class to clicked nav tab
-            event.target.closest('.nav-tab').classList.add('active');
-            
-            // Update specific tabs
-            if (tabName === 'dashboard') {
-                updateDashboard();
-            } else if (tabName === 'referrals') {
-                updateReferralSection();
-            } else if (tabName === 'leaderboard') {
-                updateLeaderboard();
+        // Share referral
+        function shareReferral() {
+            const referLink = `https://t.me/BinanceMegadropBot?start=${userData.referralCode}`;
+            if (tg && tg.share) {
+                tg.share(referLink);
+            } else if (navigator.share) {
+                navigator.share({
+                    title: 'Binance Megadrop',
+                    text: 'Join me in the Binance Megadrop giveaway and win 100,000 USDT!',
+                    url: referLink
+                });
+            } else {
+                navigator.clipboard.writeText(referLink).then(() => {
+                    showNotification('Link Copied!', 'Referral link copied to clipboard', 'success');
+                });
             }
         }
 
-        // Firestore Functions
-        function setupRealtimeListeners() {
-            // Listen for leaderboard updates
-            const leaderboardQuery = query(
-                collection(window.firebaseDB, 'leaderboard'),
-                orderBy('tickets', 'desc'),
-                limit(10)
-            );
+        // Buy Tickets Modal
+        const buyTicketsModal = document.getElementById('buyTicketsModal');
+        const ticketQuantityInput = document.getElementById('ticketQuantity');
+        const totalCostElement = document.getElementById('totalCost');
+
+        function openBuyTicketsModal() {
+            buyTicketsModal.classList.add('active');
+            ticketQuantityInput.value = 1;
+            updateTotalCost();
+        }
+
+        document.getElementById('closeBuyModal').addEventListener('click', () => {
+            buyTicketsModal.classList.remove('active');
+        });
+
+        document.getElementById('cancelBuyBtn').addEventListener('click', () => {
+            buyTicketsModal.classList.remove('active');
+        });
+
+        ticketQuantityInput.addEventListener('input', updateTotalCost);
+
+        function updateTotalCost() {
+            const quantity = parseInt(ticketQuantityInput.value) || 0;
+            const totalCost = quantity * 20;
+            totalCostElement.textContent = `${totalCost} USDT`;
+        }
+
+        document.getElementById('confirmBuyBtn').addEventListener('click', async () => {
+            const quantity = parseInt(ticketQuantityInput.value) || 0;
+            const totalCost = quantity * 20;
             
-            onSnapshot(leaderboardQuery, (snapshot) => {
-                appState.leaderboard = [];
-                snapshot.forEach((doc) => {
-                    appState.leaderboard.push(doc.data());
+            if (quantity <= 0) {
+                showNotification('Invalid Quantity', 'Please enter a valid quantity', 'error');
+                return;
+            }
+            
+            if (userData.balance < totalCost) {
+                showNotification('Insufficient Balance', `You need ${totalCost} USDT to buy ${quantity} ticket(s)`, 'error');
+                return;
+            }
+            
+            try {
+                // Update user data
+                userData.balance -= totalCost;
+                userData.tickets += quantity;
+                
+                // Update in Firestore
+                await usersCollection.doc(userData.telegramId).update({
+                    balance: userData.balance,
+                    tickets: userData.tickets,
+                    lastActiveAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
-                renderLeaderboard();
-            });
+                
+                // Update global stats
+                await db.collection('stats').doc('global').set({
+                    totalTicketsSold: firebase.firestore.FieldValue.increment(quantity)
+                }, { merge: true });
+                
+                // Add transaction record
+                await transactionsCollection.add({
+                    userId: userData.telegramId,
+                    type: 'ticket_purchase',
+                    quantity: quantity,
+                    amount: -totalCost,
+                    description: `Purchased ${quantity} ticket(s)`,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                // Update UI
+                updateUI();
+                
+                buyTicketsModal.classList.remove('active');
+                
+                showNotification('Purchase Successful', `You bought ${quantity} ticket(s)! Good luck!`, 'success');
+            } catch (error) {
+                console.error("Error buying tickets:", error);
+                showNotification('Error', 'Failed to buy tickets', 'error');
+            }
+        });
 
-            // Listen for global stats updates
-            const statsDoc = doc(window.firebaseDB, 'stats', 'global');
-            onSnapshot(statsDoc, (doc) => {
-                if (doc.exists()) {
-                    const stats = doc.data();
-                    document.getElementById('totalParticipants').textContent = stats.participants || 0;
-                    document.getElementById('totalTasks').textContent = stats.tasksCompleted || 0;
-                }
-            });
-        }
+        // Quick Action Buttons
+        document.getElementById('quickBuyTicketsBtn').addEventListener('click', openBuyTicketsModal);
+        document.getElementById('walletBuyTicketsBtn').addEventListener('click', openBuyTicketsModal);
+        document.getElementById('ticketsBuyBtn').addEventListener('click', openBuyTicketsModal);
+        
+        document.getElementById('quickShareBtn').addEventListener('click', shareReferral);
+        
+        document.getElementById('quickWithdrawBtn').addEventListener('click', () => {
+            const now = new Date();
+            const giveawayEndTime = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
+            
+            if (now < giveawayEndTime) {
+                showNotification('Withdrawal Not Available', 'Withdrawals will be available after the giveaway ends', 'warning');
+            } else {
+                showNotification('Withdrawal Available', 'Withdrawal feature is now active!', 'success');
+            }
+        });
+        
+        document.getElementById('walletWithdrawBtn').addEventListener('click', () => {
+            const now = new Date();
+            const giveawayEndTime = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
+            
+            if (now < giveawayEndTime) {
+                showNotification('Withdrawal Not Available', 'Withdrawals will be available after the giveaway ends', 'warning');
+            } else {
+                showNotification('Withdrawal Available', 'Withdrawal feature is now active!', 'success');
+            }
+        });
 
-        function loadGlobalStats() {
-            // Load initial stats
-            const statsDoc = doc(window.firebaseDB, 'stats', 'global');
-            getDoc(statsDoc).then((doc) => {
-                if (doc.exists()) {
-                    const stats = doc.data();
-                    document.getElementById('totalParticipants').textContent = stats.participants || 0;
-                    document.getElementById('totalTasks').textContent = stats.tasksCompleted || 0;
-                }
-            }).catch((error) => {
-                console.error("Error loading stats:", error);
-            });
-        }
+        // View Switching
+        const viewTabs = document.querySelectorAll('.nav-item');
+        const viewContainers = document.querySelectorAll('.view-container');
 
-        function updateGlobalStats(incrementParticipants = false, incrementTasks = false) {
-            // Use a transaction to safely update counters
-            const statsDoc = doc(window.firebaseDB, 'stats', 'global');
-            runTransaction(window.firebaseDB, (transaction) => {
-                return transaction.get(statsDoc).then((doc) => {
-                    if (doc.exists()) {
-                        const currentData = doc.data();
-                        const newData = {
-                            participants: incrementParticipants ? (currentData.participants || 0) + 1 : (currentData.participants || 0),
-                            tasksCompleted: incrementTasks ? (currentData.tasksCompleted || 0) + 1 : (currentData.tasksCompleted || 0)
-                        };
-                        transaction.update(statsDoc, newData);
-                        return newData;
-                    } else {
-                        // Create the document if it doesn't exist
-                        const newData = {
-                            participants: incrementParticipants ? 1 : 0,
-                            tasksCompleted: incrementTasks ? 1 : 0
-                        };
-                        transaction.set(statsDoc, newData);
-                        return newData;
+        viewTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetView = tab.dataset.view;
+                
+                viewTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                viewContainers.forEach(container => {
+                    container.classList.remove('active');
+                    if (container.id === `${targetView}View`) {
+                        container.classList.add('active');
                     }
                 });
-            }).catch((error) => {
-                console.error("Error updating stats:", error);
-            });
-        }
-
-        function saveUserData() {
-            if (!appState.walletConnected) return;
-            
-            // Save user data to Firestore
-            const userDoc = doc(window.firebaseDB, 'users', appState.walletAddress);
-            setDoc(userDoc, {
-                walletAddress: appState.walletAddress,
-                tickets: appState.userTickets,
-                completedTasks: appState.completedTasks,
-                joinDate: appState.joinDate,
-                currentStreak: appState.currentStreak,
-                lastActivityDate: appState.lastActivityDate,
-                referralCode: appState.referralCode,
-                referralBonus: appState.referralBonus,
-                updatedAt: window.serverTimestamp()
-            }, { merge: true }).then(() => {
-                // Update leaderboard entry
-                updateLeaderboardEntry();
-            }).catch((error) => {
-                console.error("Error saving user data:", error);
-                showNotification('Error', 'Failed to save data', 'error');
-            });
-        }
-
-        function loadUserData() {
-            if (!appState.walletConnected) return;
-            
-            // Load user data from Firestore
-            const userDoc = doc(window.firebaseDB, 'users', appState.walletAddress);
-            getDoc(userDoc).then((doc) => {
-                if (doc.exists()) {
-                    const userData = doc.data();
-                    appState.userTickets = userData.tickets || 0;
-                    appState.completedTasks = userData.completedTasks || [];
-                    appState.joinDate = userData.joinDate;
-                    appState.currentStreak = userData.currentStreak || 0;
-                    appState.lastActivityDate = userData.lastActivityDate;
-                    appState.referralCode = userData.referralCode || '';
-                    appState.referralBonus = userData.referralBonus || 0;
-                    
-                    updateWalletUI();
-                    renderTasks();
-                    
-                    // Load user activities
-                    loadUserActivities();
-                    
-                    // Load user referrals
-                    loadUserReferrals();
-                }
-            }).catch((error) => {
-                console.error("Error loading user data:", error);
-            });
-        }
-
-        function loadUserActivities() {
-            const activitiesQuery = query(
-                collection(window.firebaseDB, 'activities'),
-                where('walletAddress', '==', appState.walletAddress),
-                orderBy('timestamp', 'desc'),
-                limit(20)
-            );
-            
-            getDocs(activitiesQuery).then((snapshot) => {
-                appState.activities = [];
-                snapshot.forEach((doc) => {
-                    appState.activities.push(doc.data());
-                });
-            }).catch((error) => {
-                console.error("Error loading activities:", error);
-            });
-        }
-
-        function loadUserReferrals() {
-            const referralsQuery = query(
-                collection(window.firebaseDB, 'referrals'),
-                where('referrerAddress', '==', appState.walletAddress)
-            );
-            
-            getDocs(referralsQuery).then((snapshot) => {
-                appState.referrals = [];
-                snapshot.forEach((doc) => {
-                    appState.referrals.push(doc.data());
-                });
-                updateReferralSection();
-            }).catch((error) => {
-                console.error("Error loading referrals:", error);
-            });
-        }
-
-        function addActivity(type, title) {
-            if (!appState.walletConnected) return;
-            
-            const activity = {
-                walletAddress: appState.walletAddress,
-                type: type,
-                title: title,
-                timestamp: window.serverTimestamp()
-            };
-            
-            addDoc(collection(window.firebaseDB, 'activities'), activity).then(() => {
-                // Update streak
-                updateStreak();
                 
-                // Add to local state
-                appState.activities.unshift(activity);
-                
-                // Keep only last 20 activities in local state
-                if (appState.activities.length > 20) {
-                    appState.activities = appState.activities.slice(0, 20);
-                }
-            }).catch((error) => {
-                console.error("Error adding activity:", error);
-            });
-        }
-
-        function updateLeaderboardEntry() {
-            if (!appState.walletConnected) return;
-            
-            // Update or create leaderboard entry
-            const leaderboardDoc = doc(window.firebaseDB, 'leaderboard', appState.walletAddress);
-            setDoc(leaderboardDoc, {
-                address: appState.walletAddress,
-                tickets: appState.userTickets,
-                referrals: appState.referrals.length,
-                updatedAt: window.serverTimestamp()
-            }).catch((error) => {
-                console.error("Error updating leaderboard:", error);
-            });
-        }
-
-        function updateLeaderboard() {
-            // This is handled by the real-time listener
-            // Just ensure the UI is updated
-            renderLeaderboard();
-        }
-
-        // Referral Functions
-        function generateReferralCode() {
-            if (!appState.walletConnected) return '';
-            
-            if (!appState.referralCode) {
-                // Generate unique referral code from wallet address
-                const shortAddress = appState.walletAddress.substring(2, 8);
-                appState.referralCode = shortAddress.toUpperCase();
-                saveUserData();
-            }
-            
-            return appState.referralCode;
-        }
-
-        function getReferralLink() {
-            const code = generateReferralCode();
-            if (!code) return '';
-            return `${window.location.origin}${window.location.pathname}?ref=${code}`;
-        }
-
-        function updateReferralSection() {
-            if (!appState.walletConnected) {
-                document.getElementById('referralLink').textContent = 'Connect wallet to generate your referral link';
-                document.getElementById('copyBtn').disabled = true;
-                document.getElementById('shareBtn').disabled = true;
-                return;
-            }
-
-            const referralLink = getReferralLink();
-            document.getElementById('referralLink').textContent = referralLink;
-            document.getElementById('copyBtn').disabled = false;
-            document.getElementById('shareBtn').disabled = false;
-
-            // Update stats
-            document.getElementById('totalReferrals').textContent = appState.referrals.length;
-            document.getElementById('referralBonus').textContent = `${appState.referralBonus}%`;
-            
-            // Calculate total winning chance
-            const totalChance = appState.baseWinChance + appState.referralBonus;
-            document.getElementById('totalWinningChance').textContent = `${totalChance}%`;
-
-            // Render referrals list
-            renderReferralsList();
-        }
-
-        function renderReferralsList() {
-            const referralsList = document.getElementById('referralsList');
-            
-            if (appState.referrals.length === 0) {
-                referralsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-user-plus"></i>
-                        <p>No referrals yet. Share your link to start earning bonus chances!</p>
-                    </div>
-                `;
-                return;
-            }
-
-            referralsList.innerHTML = appState.referrals.map(referral => `
-                <div class="referral-item">
-                    <div class="referral-info">
-                        <div class="referral-avatar">
-                            ${referral.referredAddress.substring(0, 2).toUpperCase()}
-                        </div>
-                        <div class="referral-details">
-                            <div class="referral-address">${referral.referredAddress}</div>
-                            <div class="referral-date">Referred: ${new Date(referral.timestamp.toDate()).toLocaleDateString()}</div>
-                        </div>
-                    </div>
-                    <div class="referral-status">Active</div>
-                </div>
-            `).join('');
-        }
-
-        function copyReferralLink() {
-            const referralLink = getReferralLink();
-            if (!referralLink) {
-                showNotification('Error', 'Please connect your wallet first', 'error');
-                return;
-            }
-
-            navigator.clipboard.writeText(referralLink).then(() => {
-                showNotification('Success', 'Referral link copied to clipboard!', 'success');
-            }).catch(() => {
-                showNotification('Error', 'Failed to copy link', 'error');
-            });
-        }
-
-        function shareReferral() {
-            const referralLink = getReferralLink();
-            if (!referralLink) {
-                showNotification('Error', 'Please connect your wallet first', 'error');
-                return;
-            }
-
-            if (navigator.share) {
-                navigator.share({
-                    title: 'BNB Mega Giveaway',
-                    text: `Join the BNB Mega Giveaway using my referral link and increase your winning chances!`,
-                    url: referralLink
-                }).then(() => {
-                    showNotification('Success', 'Referral link shared!', 'success');
-                }).catch(() => {
-                    // User cancelled
-                });
-            } else {
-                // Fallback
-                copyReferralLink();
-            }
-        }
-
-        function showReferralStats() {
-            const stats = {
-                total: appState.referrals.length,
-                thisMonth: appState.referrals.filter(r => {
-                    const referralDate = r.timestamp.toDate();
-                    const now = new Date();
-                    return referralDate.getMonth() === now.getMonth() && 
-                           referralDate.getFullYear() === now.getFullYear();
-                }).length,
-                bonus: appState.referralBonus,
-                totalChance: appState.baseWinChance + appState.referralBonus
-            };
-
-            showNotification('Referral Stats', 
-                `Total: ${stats.total} | This Month: ${stats.thisMonth} | Bonus: +${stats.bonus}% | Total Chance: ${stats.totalChance}%`, 
-                'success');
-        }
-
-        function checkReferralCode() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const refCode = urlParams.get('ref');
-            
-            if (refCode && !appState.walletConnected) {
-                // Store referral code for later use
-                sessionStorage.setItem('pendingReferral', refCode);
-                console.log('Referral code detected:', refCode);
-            }
-        }
-
-        function processReferral(referrerCode) {
-            if (!referrerCode || !appState.walletConnected) return;
-
-            // Check if this user was already referred
-            const referredQuery = query(
-                collection(window.firebaseDB, 'referrals'),
-                where('referredAddress', '==', appState.walletAddress)
-            );
-            
-            getDocs(referredQuery).then((snapshot) => {
-                if (!snapshot.empty) {
-                    // User was already referred
-                    return;
-                }
-
-                // Find the referrer
-                const referrerQuery = query(
-                    collection(window.firebaseDB, 'users'),
-                    where('referralCode', '==', referrerCode)
-                );
-                
-                return getDocs(referrerQuery);
-            }).then((snapshot) => {
-                if (snapshot && snapshot.empty) {
-                    // Referrer not found
-                    return;
-                }
-
-                const referrerDoc = snapshot.docs[0];
-                const referrerAddress = referrerDoc.id;
-
-                // Create referral record
-                return addDoc(collection(window.firebaseDB, 'referrals'), {
-                    referrerAddress: referrerAddress,
-                    referredAddress: appState.walletAddress,
-                    timestamp: window.serverTimestamp(),
-                    status: 'active'
-                });
-            }).then(() => {
-                // Update referrer's bonus
-                const referrerDoc = doc(window.firebaseDB, 'users', referrerAddress);
-                return getDoc(referrerDoc);
-            }).then((doc) => {
-                if (doc.exists()) {
-                    const referrerData = doc.data();
-                    const newReferralBonus = (referrerData.referralBonus || 0) + 2;
-                    const newReferralCount = (referrerData.referrals || 0) + 1;
-                    
-                    return updateDoc(referrerDoc, {
-                        referralBonus: newReferralBonus,
-                        referrals: newReferralCount
-                    });
-                }
-            }).then(() => {
-                showNotification('Referral Bonus!', 
-                    `You were referred successfully!`, 
-                    'success');
-                
-                // Add activity
-                addActivity('referral', `Joined with referral code: ${referrerCode}`);
-            }).catch((error) => {
-                console.error("Error processing referral:", error);
-            });
-        }
-
-        // Dashboard Functions
-        function updateDashboard() {
-            if (!appState.walletConnected) {
-                showNotification('Login Required', 'Please connect your wallet to view dashboard', 'error');
-                switchTab('home');
-                return;
-            }
-
-            // Update profile info
-            document.getElementById('profileName').textContent = `User ${appState.walletAddress.substring(0, 6)}`;
-            document.getElementById('profileWallet').textContent = appState.walletAddress;
-            document.getElementById('joinDate').textContent = appState.joinDate ? new Date(appState.joinDate).toLocaleDateString() : new Date().toLocaleDateString();
-            
-            // Update stats
-            document.getElementById('dashboardTickets').textContent = appState.userTickets;
-            document.getElementById('dashboardCompleted').textContent = appState.completedTasks.length;
-            document.getElementById('dashboardReferrals').textContent = appState.referrals.length;
-            
-            // Calculate completion rate
-            const completionRate = Math.round((appState.completedTasks.length / appState.tasks.length) * 100);
-            document.getElementById('completionRate').textContent = `${completionRate}%`;
-            
-            // Update progress circle
-            const circle = document.getElementById('progressCircle');
-            const circumference = 2 * Math.PI * 52;
-            const offset = circumference - (completionRate / 100) * circumference;
-            circle.style.strokeDashoffset = offset;
-            
-            // Update winning chance
-            const totalChance = appState.baseWinChance + appState.referralBonus;
-            document.getElementById('dashboardWinChance').textContent = `${totalChance}%`;
-            
-            // Update last activity
-            if (appState.activities.length > 0) {
-                const lastActivity = appState.activities[0];
-                document.getElementById('lastActivity').textContent = formatTimeAgo(lastActivity.timestamp);
-            } else {
-                document.getElementById('lastActivity').textContent = 'No activity yet';
-            }
-            
-            // Update activity timeline
-            renderActivityTimeline();
-        }
-
-        function renderActivityTimeline() {
-            const activityList = document.getElementById('activityList');
-            
-            if (appState.activities.length === 0) {
-                activityList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-inbox"></i>
-                        <p>No activity yet. Complete some tasks to see your activity here!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Show last 10 activities
-            const recentActivities = appState.activities.slice(0, 10);
-            activityList.innerHTML = recentActivities.map(activity => `
-                <div class="activity-item">
-                    <div class="activity-icon">
-                        <i class="fas ${getActivityIcon(activity.type)}"></i>
-                    </div>
-                    <div class="activity-content">
-                        <div class="activity-title">${activity.title}</div>
-                        <div class="activity-time">${formatTimeAgo(activity.timestamp)}</div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function getActivityIcon(type) {
-            const icons = {
-                'ad': 'fa-ad',
-                'social': 'fa-users',
-                'share': 'fa-share-alt',
-                'daily': 'fa-calendar-check',
-                'visit': 'fa-globe',
-                'newsletter': 'fa-envelope',
-                'wallet': 'fa-wallet',
-                'referral': 'fa-user-plus'
-            };
-            return icons[type] || 'fa-check-circle';
-        }
-
-        function formatTimeAgo(timestamp) {
-            const now = new Date();
-            const activityDate = timestamp.toDate();
-            const diffInSeconds = Math.floor((now - activityDate) / 1000);
-            
-            if (diffInSeconds < 60) return 'Just now';
-            if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
-            if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
-            return `${Math.floor(diffInSeconds / 86400)} days ago`;
-        }
-
-        function updateStreak() {
-            const today = new Date().toDateString();
-            const lastActivity = appState.lastActivityDate ? new Date(appState.lastActivityDate).toDateString() : null;
-            
-            if (lastActivity === today) {
-                // Already checked in today
-                return;
-            } else if (lastActivity === new Date(Date.now() - 86400000).toDateString()) {
-                // Yesterday - continue streak
-                appState.currentStreak++;
-            } else {
-                // Streak broken
-                appState.currentStreak = 1;
-            }
-            
-            appState.lastActivityDate = new Date().toISOString();
-        }
-
-        function exportData() {
-            const data = {
-                walletAddress: appState.walletAddress,
-                tickets: appState.userTickets,
-                completedTasks: appState.completedTasks,
-                activities: appState.activities.map(a => ({
-                    type: a.type,
-                    title: a.title,
-                    timestamp: a.timestamp.toDate().toISOString()
-                })),
-                referrals: appState.referrals.map(r => ({
-                    referredAddress: r.referredAddress,
-                    timestamp: r.timestamp.toDate().toISOString()
-                })),
-                referralBonus: appState.referralBonus,
-                joinDate: appState.joinDate,
-                currentStreak: appState.currentStreak,
-                exportDate: new Date().toISOString()
-            };
-            
-            const dataStr = JSON.stringify(data, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-            
-            const exportFileDefaultName = `bnb-giveaway-data-${Date.now()}.json`;
-            
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-            
-            showNotification('Success', 'Your data has been exported', 'success');
-        }
-
-        function clearData() {
-            if (confirm('Are you sure you want to clear all your data? This action cannot be undone.')) {
-                // Delete user document from Firestore
-                if (appState.walletConnected) {
-                    const userDoc = doc(window.firebaseDB, 'users', appState.walletAddress);
-                    deleteDoc(userDoc)
-                        .then(() => {
-                            // Delete activities
-                            const activitiesQuery = query(
-                                collection(window.firebaseDB, 'activities'),
-                                where('walletAddress', '==', appState.walletAddress)
-                            );
-                            
-                            return getDocs(activitiesQuery);
-                        })
-                        .then((snapshot) => {
-                            const batch = writeBatch(window.firebaseDB);
-                            snapshot.forEach((doc) => {
-                                batch.delete(doc.ref);
-                            });
-                            return batch.commit();
-                        })
-                        .then(() => {
-                            // Delete referrals
-                            const referralsQuery = query(
-                                collection(window.firebaseDB, 'referrals'),
-                                where('referredAddress', '==', appState.walletAddress)
-                            );
-                            
-                            return getDocs(referralsQuery);
-                        })
-                        .then((snapshot) => {
-                            const batch = writeBatch(window.firebaseDB);
-                            snapshot.forEach((doc) => {
-                                batch.delete(doc.ref);
-                            });
-                            return batch.commit();
-                        })
-                        .then(() => {
-                            // Delete from leaderboard
-                            const leaderboardDoc = doc(window.firebaseDB, 'leaderboard', appState.walletAddress);
-                            return deleteDoc(leaderboardDoc);
-                        })
-                        .then(() => {
-                            showNotification('Success', 'Your data has been cleared', 'success');
-                            location.reload();
-                        })
-                        .catch((error) => {
-                            console.error("Error clearing data:", error);
-                            showNotification('Error', 'Failed to clear data', 'error');
-                        });
+                if (targetView === 'admin') {
+                    document.getElementById('userName').textContent = 'Admin';
+                    document.getElementById('userAvatar').innerHTML = '<i class="fas fa-user-shield"></i>';
                 } else {
-                    location.reload();
+                    // Restore user info
+                    if (currentUser) {
+                        const fullName = `${currentUser.first_name || ''} ${currentUser.last_name || ''}`.trim();
+                        const displayName = fullName || currentUser.username || 'User';
+                        
+                        document.getElementById('userName').textContent = displayName;
+                        
+                        const avatarElement = document.getElementById('userAvatar');
+                        if (currentUser.photo_url) {
+                            avatarElement.innerHTML = `<img src="${currentUser.photo_url}" alt="${displayName}">`;
+                        } else {
+                            avatarElement.textContent = displayName[0].toUpperCase();
+                        }
+                    }
                 }
-            }
-        }
-
-        function initializeApp() {
-            // Check for wallet connection in localStorage
-            const savedWallet = localStorage.getItem('walletAddress');
-            if (savedWallet) {
-                appState.walletAddress = savedWallet;
-                appState.walletConnected = true;
-                loadUserData();
-            }
-        }
-
-        function createFloatingBNB() {
-            const bgAnimation = document.getElementById('bgAnimation');
-            for (let i = 0; i < 10; i++) {
-                const bnb = document.createElement('div');
-                bnb.className = 'floating-bnb';
-                bnb.innerHTML = '₮';
-                bnb.style.left = Math.random() * 100 + '%';
-                bnb.style.animationDelay = Math.random() * 20 + 's';
-                bnb.style.fontSize = (Math.random() * 2 + 1) + 'rem';
-                bgAnimation.appendChild(bnb);
-            }
-        }
+                
+                // Load data for the new view
+                loadViewData();
+            });
+        });
 
         // Countdown Timer
-        function startCountdown() {
-            const endDate = new Date();
-            endDate.setDate(endDate.getDate() + 7); // 7 days from now
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = endDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    document.querySelector('.countdown-timer').innerHTML = '<span style="color: var(--danger);">Giveaway Ended!</span>';
-                }
-            }
-
-            updateCountdown();
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        }
-
-        // Wallet Functions
-        function connectWallet() {
-            const walletInput = document.getElementById('walletAddress');
-            const address = walletInput.value.trim();
-
-            if (!address) {
-                showNotification('Error', 'Please enter a wallet address', 'error');
-                return;
-            }
-
-            if (!isValidBEP20Address(address)) {
-                showNotification('Error', 'Invalid BEP-20 wallet address', 'error');
-                return;
-            }
-
-            appState.walletConnected = true;
-            appState.walletAddress = address;
+        function updateCountdown() {
+            const now = new Date();
+            const giveawayEndTime = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
+            const timeLeft = giveawayEndTime - now;
             
-            // Save to localStorage for persistence
-            localStorage.setItem('walletAddress', address);
-            
-            // Check if user exists in Firestore
-            const userDoc = doc(window.firebaseDB, 'users', address);
-            getDoc(userDoc).then((doc) => {
-                if (!doc.exists()) {
-                    // New user - set join date
-                    appState.joinDate = new Date().toISOString();
-                    appState.userTickets = 0;
-                    appState.completedTasks = [];
-                    appState.referralBonus = 0;
-                    appState.currentStreak = 0;
-                    
-                    // Update global stats
-                    updateGlobalStats(true, false);
-                    
-                    // Add activity
-                    addActivity('wallet', 'Wallet connected');
-                    
-                    // Process pending referral if exists
-                    const pendingReferral = sessionStorage.getItem('pendingReferral');
-                    if (pendingReferral) {
-                        processReferral(pendingReferral);
-                        sessionStorage.removeItem('pendingReferral');
-                    }
-                } else {
-                    // Existing user - load data
-                    const userData = doc.data();
-                    appState.userTickets = userData.tickets || 0;
-                    appState.completedTasks = userData.completedTasks || [];
-                    appState.joinDate = userData.joinDate;
-                    appState.currentStreak = userData.currentStreak || 0;
-                    appState.lastActivityDate = userData.lastActivityDate;
-                    appState.referralCode = userData.referralCode || '';
-                    appState.referralBonus = userData.referralBonus || 0;
-                    
-                    // Load user activities and referrals
-                    loadUserActivities();
-                    loadUserReferrals();
-                }
+            if (timeLeft <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
                 
-                updateWalletUI();
-                saveUserData();
-                showNotification('Success', 'Wallet connected successfully!', 'success');
-            }).catch((error) => {
-                console.error("Error connecting wallet:", error);
-                showNotification('Error', 'Failed to connect wallet', 'error');
-            });
-        }
-
-        function isValidBEP20Address(address) {
-            return /^0x[a-fA-F0-9]{40}$/.test(address);
-        }
-
-        function updateWalletUI() {
-            const statusDiv = document.getElementById('walletStatus');
-            const connectBtn = document.getElementById('connectWallet');
-            const ticketCounter = document.getElementById('ticketCounter');
-            const walletInput = document.getElementById('walletAddress');
-
-            if (appState.walletConnected) {
-                statusDiv.className = 'wallet-status status-connected';
-                statusDiv.innerHTML = `
-                    <i class="fas fa-check-circle"></i>
-                    <span>Connected: ${appState.walletAddress.substring(0, 6)}...${appState.walletAddress.substring(38)}</span>
-                `;
-                connectBtn.textContent = 'Connected';
-                connectBtn.disabled = true;
-                walletInput.disabled = true;
-                ticketCounter.style.display = 'block';
-                document.getElementById('userTickets').textContent = appState.userTickets;
-            } else {
-                statusDiv.className = 'wallet-status status-disconnected';
-                statusDiv.innerHTML = `
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span>Wallet not connected</span>
-                `;
-                connectBtn.textContent = 'Connect Wallet';
-                connectBtn.disabled = false;
-                walletInput.disabled = false;
-                ticketCounter.style.display = 'none';
-            }
-        }
-
-        // Task Functions
-        function renderTasks() {
-            console.log('Rendering tasks...');
-            const tasksGrid = document.getElementById('tasksGrid');
-            tasksGrid.innerHTML = '';
-
-            appState.tasks.forEach((task, index) => {
-                console.log(`Rendering task ${index + 1}: ${task.title}`);
-                const isCompleted = appState.completedTasks.includes(task.id);
-                const taskCard = document.createElement('div');
-                taskCard.className = 'task-card';
-                taskCard.innerHTML = `
-                    <div class="task-header">
-                        <i class="task-icon fas ${task.icon}"></i>
-                        <span class="task-reward">+${task.reward} ticket</span>
-                    </div>
-                    <h3 class="task-title">${task.title}</h3>
-                    <p class="task-description">${task.description}</p>
-                    <div class="task-progress">
-                        <div class="task-progress-bar" style="width: ${task.progress}%"></div>
-                    </div>
-                    <button class="task-btn ${isCompleted ? 'completed' : ''}" 
-                            onclick="handleTask('${task.id}')"
-                            ${!appState.walletConnected ? 'disabled' : ''}>
-                        ${isCompleted ? '✓ Got Ticket' : 'Get Ticket'}
-                    </button>
-                `;
-                tasksGrid.appendChild(taskCard);
-            });
-            
-            console.log(`Total tasks rendered: ${appState.tasks.length}`);
-        }
-
-        function handleTask(taskId) {
-            if (!appState.walletConnected) {
-                showNotification('Error', 'Please connect your wallet first', 'error');
-                return;
-            }
-
-            const task = appState.tasks.find(t => t.id === taskId);
-            if (!task) return;
-
-            if (appState.completedTasks.includes(taskId)) {
-                showNotification('Info', 'Task already completed', 'info');
-                return;
-            }
-
-            switch (task.type) {
-                case 'ad':
-                    // Show the libtl.com ad
-                    showAdAndCompleteTask(taskId);
-                    break;
-                case 'social':
-                case 'visit':
-                    window.open(task.link, '_blank');
-                    setTimeout(() => completeTask(taskId), 3000);
-                    break;
-                case 'share':
-                    if (navigator.share) {
-                        navigator.share({
-                            title: 'BNB Mega Giveaway',
-                            text: 'Join the BNB Mega Giveaway and win 10 BNB!',
-                            url: getReferralLink() || window.location.href
-                        }).then(() => completeTask(taskId));
-                    } else {
-                        // Fallback for browsers that don't support Web Share API
-                        navigator.clipboard.writeText(getReferralLink() || window.location.href);
-                        showNotification('Link Copied!', 'Share this link with your friends', 'success');
-                        setTimeout(() => completeTask(taskId), 2000);
-                    }
-                    break;
-                default:
-                    completeTask(taskId);
-            }
-        }
-
-        function showAdAndCompleteTask(taskId) {
-            // Show the libtl.com rewarded popup
-            show_9891560('pop').then(() => {
-                // User watched the ad till the end
-                completeTask(taskId);
-            }).catch(e => {
-                // User got error during playing ad
-                console.error('Ad error:', e);
-                showNotification('Ad Error', 'Failed to load ad. Please try again.', 'error');
-            });
-        }
-
-        function completeTask(taskId) {
-            if (!appState.completedTasks.includes(taskId)) {
-                appState.completedTasks.push(taskId);
-                const task = appState.tasks.find(t => t.id === taskId);
-                if (task) {
-                    appState.userTickets += task.reward;
-                    task.progress = 100;
-                    
-                    // Add activity
-                    addActivity(task.type, `Completed: ${task.title}`);
-                    
-                    // Update global stats
-                    updateGlobalStats(false, true);
-                }
-                saveUserData();
-                renderTasks();
-                updateWalletUI();
-                showNotification('Task Completed!', `+${task.reward} ticket earned`, 'success');
+                document.getElementById('quickWithdrawBtn').disabled = false;
+                document.getElementById('walletWithdrawBtn').disabled = false;
+                document.getElementById('quickWithdrawBtn').innerHTML = '<i class="fas fa-arrow-down"></i><span>Withdraw</span>';
+                document.getElementById('walletWithdrawBtn').innerHTML = '<i class="fas fa-arrow-down"></i><span>Withdraw</span>';
                 
-                // Update dashboard if it's the active tab
-                if (document.getElementById('dashboard-tab').classList.contains('active')) {
-                    updateDashboard();
-                }
+                return;
             }
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
 
-        // Leaderboard Functions
-        function renderLeaderboard() {
-            const leaderboardList = document.getElementById('leaderboardList');
-            leaderboardList.innerHTML = '';
+        // Filter functionality for activity table
+        const filterButtons = document.querySelectorAll('.filter-btn');
 
-            appState.leaderboard.forEach((entry, index) => {
-                const item = document.createElement('div');
-                item.className = 'leaderboard-item';
-                item.innerHTML = `
-                    <div class="leaderboard-rank rank-${index + 1}">
-                        ${index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : index + 1}
-                    </div>
-                    <div class="leaderboard-address">${entry.address.substring(0, 6)}...${entry.address.substring(38)}</div>
-                    <div class="leaderboard-tickets">${entry.tickets} tickets</div>
-                `;
-                leaderboardList.appendChild(item);
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Reload user activity with filter
+                loadUserActivity(filter);
             });
-        }
+        });
 
-        // Modal Functions
-        function closeModal() {
-            document.getElementById('taskModal').classList.remove('active');
-        }
+        // Export functionality
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            showNotification('Export Started', 'Downloading user activity data...', 'success');
+            
+            setTimeout(() => {
+                showNotification('Export Complete', 'Data exported successfully!', 'success');
+            }, 2000);
+        });
 
-        // Notification Functions
+        // Show Notification
         function showNotification(title, message, type = 'success') {
             const notification = document.getElementById('notification');
-            const icon = notification.querySelector('.notification-icon');
-            
-            notification.className = `notification ${type}`;
             document.getElementById('notificationTitle').textContent = title;
             document.getElementById('notificationMessage').textContent = message;
             
-            if (type === 'success') {
-                icon.className = 'notification-icon fas fa-check-circle';
-            } else if (type === 'error') {
-                icon.className = 'notification-icon fas fa-exclamation-circle';
-            } else {
-                icon.className = 'notification-icon fas fa-info-circle';
-            }
-            
+            notification.className = `notification ${type}`;
             notification.classList.add('show');
             
             setTimeout(() => {
@@ -2675,29 +2742,24 @@
             }, 3000);
         }
 
-        // Social Functions
-        function openSocial(platform) {
-            const links = {
-                telegram: 'https://t.me/example',
-                twitter: 'https://twitter.com/example',
-                discord: 'https://discord.gg/example',
-                youtube: 'https://youtube.com/example'
-            };
-            window.open(links[platform], '_blank');
-        }
-
-        // Close modal on outside click
-        document.getElementById('taskModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+        // Initialize app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeApp();
+            
+            // Initialize countdown
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
 
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+        // Add hover effects to chart bars
+        document.querySelectorAll('.bar').forEach(bar => {
+            bar.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            bar.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
         });
     </script>
 </body>
